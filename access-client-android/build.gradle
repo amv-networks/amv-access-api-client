@@ -1,0 +1,19 @@
+description = 'a simple android client for the AMV access rest interface'
+
+
+buildscript {
+    ext {
+        okhttpVersion = '3.9.0'
+        rxjavaVersion = '2.1.6'
+    }
+}
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+dependencies {
+    compile project(':access-client-model-android')
+
+    compile "com.squareup.okhttp3:okhttp:${okhttpVersion}"
+    compile "io.reactivex.rxjava2:rxjava:${rxjavaVersion}"
+}

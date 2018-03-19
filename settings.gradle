@@ -1,0 +1,8 @@
+rootProject.name = 'amv-access-api'
+
+
+include 'access-client'
+include 'access-client-model'
+include 'access-client-android'
+include 'access-client-model-android'
+

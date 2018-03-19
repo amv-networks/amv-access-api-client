@@ -1,0 +1,31 @@
+description = 'a simple client for the AMV access rest interface'
+
+buildscript {
+    ext {
+        feignVersion = '9.5.1'
+    }
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile project(':access-client-model')
+
+    compile "io.github.openfeign:feign-core:${feignVersion}"
+    compile "io.github.openfeign:feign-okhttp:${feignVersion}"
+    compile "io.github.openfeign:feign-slf4j:${feignVersion}"
+    compile "io.github.openfeign:feign-jackson:${feignVersion}"
+    compile("io.github.openfeign:feign-hystrix:${feignVersion}") {
+        exclude group: 'commons-logging', module: 'commons-logging'
+    }
+
+    testCompile 'com.marvinformatics.feign:feign-mock:0.6'
+
+    testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    testCompile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}") {
+        exclude module: 'spring-boot-starter-tomcat'
+    }
+}
+
