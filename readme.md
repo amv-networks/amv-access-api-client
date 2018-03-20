@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/amv-networks/amv-access-api-client.svg?branch=master)](https://travis-ci.org/amv-networks/amv-access-api-client)
-[![Download](https://api.bintray.com/packages/amv-networks/amv-access-api-client/client/images/download.svg) ](https://bintray.com/amv-networks/amv-access-api-client/access-client/_latestVersion)
+[![Download](https://api.bintray.com/packages/amvnetworks/amv-access-api-client/access-client/images/download.svg) ](https://bintray.com/amvnetworks/amv-access-api-client/access-client/_latestVersion)
 [![License](https://img.shields.io/github/license/amv-networks/amv-access-api-client.svg?maxAge=2592000)](https://github.com/amv-networks/amv-access-api-client/blob/master/LICENSE)
 
 amv-access-api-client
