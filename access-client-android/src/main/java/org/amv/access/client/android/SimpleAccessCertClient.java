@@ -36,6 +36,8 @@ public class SimpleAccessCertClient implements AccessCertClient {
                         Request request = new Request.Builder()
                                 .addHeader(MoreHttpHeaders.AMV_NONCE, nonce)
                                 .addHeader(MoreHttpHeaders.AMV_SIGNATURE, signedNonce)
+                                .addHeader(MoreHttpHeaders.AMV_CLIENT_NAME, Clients.CLIENT_NAME)
+                                .addHeader(MoreHttpHeaders.AMV_CLIENT_VERSION, Clients.CLIENT_VERSION)
                                 .url(url)
                                 .build();
 

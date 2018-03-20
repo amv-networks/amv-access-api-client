@@ -43,7 +43,9 @@ public class SimpleDeviceCertClient implements DeviceCertClient {
 
                         String authHeaderValue = String.format("%s:%s", appId, apiKey);
                         Request request = new Request.Builder()
-                                .addHeader("Authorization", authHeaderValue)
+                                .addHeader(MoreHttpHeaders.AUTHORIZATION, authHeaderValue)
+                                .addHeader(MoreHttpHeaders.AMV_CLIENT_NAME, Clients.CLIENT_NAME)
+                                .addHeader(MoreHttpHeaders.AMV_CLIENT_VERSION, Clients.CLIENT_VERSION)
                                 .url(url)
                                 .post(requestBody)
                                 .build();
@@ -63,8 +65,8 @@ public class SimpleDeviceCertClient implements DeviceCertClient {
 
     @Override
     public Observable<DeviceCertificateResponseDto> fetchDeviceCertificate(final String nonce,
-                                                                            final String signedNonce,
-                                                                            final String deviceSerialNumber) {
+                                                                           final String signedNonce,
+                                                                           final String deviceSerialNumber) {
         return Observable.just(1)
                 .flatMap(new Function<Integer, Observable<DeviceCertificateResponseDto>>() {
                     @Override
@@ -74,6 +76,8 @@ public class SimpleDeviceCertClient implements DeviceCertClient {
                         Request request = new Request.Builder()
                                 .addHeader(MoreHttpHeaders.AMV_NONCE, nonce)
                                 .addHeader(MoreHttpHeaders.AMV_SIGNATURE, signedNonce)
+                                .addHeader(MoreHttpHeaders.AMV_CLIENT_NAME, Clients.CLIENT_NAME)
+                                .addHeader(MoreHttpHeaders.AMV_CLIENT_VERSION, Clients.CLIENT_VERSION)
                                 .url(url)
                                 .build();
 
