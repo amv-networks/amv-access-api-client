@@ -5,4 +5,5 @@ include 'access-client'
 include 'access-client-model'
 include 'access-client-android'
 include 'access-client-model-android'
+include 'access-grpc'
 

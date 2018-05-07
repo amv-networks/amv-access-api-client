@@ -1,0 +1,179 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.amv.access.grpc";
+option java_outer_classname = "RouteGuideProto";
+option objc_class_prefix = "RTG";
+
+package amv_access_api;
+
+// Interface exported by the server.
+service RouteGuide {
+  // A simple RPC.
+  //
+  // Obtains the feature at a given position.
+  //
+  // A feature with an empty name is returned if there's no feature at the given
+  // position.
+  rpc GetFeature(Point) returns (Feature) {}
+
+  // A server-to-client streaming RPC.
+  //
+  // Obtains the Features available within the given Rectangle.  Results are
+  // streamed rather than returned at once (e.g. in a response message with a
+  // repeated field), as the rectangle may cover a large area and contain a
+  // huge number of features.
+  rpc ListFeatures(Rectangle) returns (stream Feature) {}
+
+  // A client-to-server streaming RPC.
+  //
+  // Accepts a stream of Points on a route being traversed, returning a
+  // RouteSummary when traversal is completed.
+  rpc RecordRoute(stream Point) returns (RouteSummary) {}
+
+  // A Bidirectional streaming RPC.
+  //
+  // Accepts a stream of RouteNotes sent while a route is being traversed,
+  // while receiving other RouteNotes (e.g. from other users).
+  rpc RouteChat(stream RouteNote) returns (stream RouteNote) {}
+}
+
+service AccessCertService {
+
+}
+
+
+message ErrorResponse {
+  repeated ErrorInfo errors = 1;
+}
+
+message ErrorInfo {
+  string title = 1;
+  string source = 2;
+  string detail = 3;
+}
+
+message NonceAuth {
+  string nonce = 1;
+  string signed_nonce = 2;
+}
+
+message IssuerAuth {
+  NonceAuth nonce_auth = 1;
+  string issuer_uuid = 2;
+}
+
+message DeviceAuth {
+  NonceAuth nonce_auth = 1;
+  string device_serial_number = 2;
+}
+
+message AccessCertificate {
+  string id = 1;
+  string device_access_certificate = 2;
+  string vehicle_access_certificate = 3;
+  string name = 4;
+}
+
+message GetAccessCertificatesResponse {
+  repeated AccessCertificate access_certificates = 1;
+}
+
+message CreateAccessCertificateRequest {
+  string app_id = 1;
+  string device_serial_number = 2;
+  string vehicle_serial_number = 3;
+  int64 validity_start = 4;
+  int64 validity_end = 5;
+}
+
+message CreateAccessCertificateResponse {
+  AccessCertificateSigningRequest access_certificate_signing_request = 1;
+}
+
+message UpdateAccessCertificateRequest {
+  string vehicle_access_certificate_signature_base64 = 1;
+  string signed_vehicle_access_certificate_base64 = 2;
+  string device_access_certificate_signature_base64 = 3;
+  string signed_device_access_certificate_base64 = 4;
+}
+
+message AccessCertificateSigningRequest {
+  string id = 1;
+  string device_access_certificate = 2;
+  string vehicle_access_certificate = 3;
+}
+
+message CreateDeviceCertificateRequest {
+  string device_public_key = 1;
+}
+
+message CreateDeviceCertificateResponse {
+  DeviceCertificate device_certificate = 1;
+}
+
+message DeviceCertificate {
+  string device_certificate = 1;
+  string issuer_public_key = 2;
+}
+
+message DeviceCertificateResponse {
+  DeviceCertificate device_certificate = 1;
+}
+
+message Point {
+  int32 latitude = 1;
+  int32 longitude = 2;
+}
+
+message Rectangle {
+  // One corner of the rectangle.
+  Point lo = 1;
+
+  // The other corner of the rectangle.
+  Point hi = 2;
+}
+
+// A feature names something at a given point.
+//
+// If a feature could not be named, the name is empty.
+message Feature {
+  // The name of the feature.
+  string name = 1;
+
+  // The point where the feature is detected.
+  Point location = 2;
+}
+
+// Not used in the RPC.  Instead, this is here for the form serialized to disk.
+message FeatureDatabase {
+  repeated Feature feature = 1;
+}
+
+// A RouteNote is a message sent while at a given point.
+message RouteNote {
+  // The location from which the message is sent.
+  Point location = 1;
+
+  // The message to be sent.
+  string message = 2;
+}
+
+// A RouteSummary is received in response to a RecordRoute rpc.
+//
+// It contains the number of individual points received, the number of
+// detected features, and the total distance covered as the cumulative sum of
+// the distance between each point.
+message RouteSummary {
+  // The number of points received.
+  int32 point_count = 1;
+
+  // The number of known features passed while traversing the route.
+  int32 feature_count = 2;
+
+  // The distance covered in metres.
+  int32 distance = 3;
+
+  // The duration of the traversal in seconds.
+  int32 elapsed_time = 4;
+}
