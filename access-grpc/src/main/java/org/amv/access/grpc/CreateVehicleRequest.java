@@ -4,22 +4,21 @@
 package org.amv.access.grpc;
 
 /**
- * Protobuf type {@code amv_access_api.AccessCertificate}
+ * Protobuf type {@code amv_access_api.CreateVehicleRequest}
  */
-public  final class AccessCertificate extends
+public  final class CreateVehicleRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:amv_access_api.AccessCertificate)
-    AccessCertificateOrBuilder {
+    // @@protoc_insertion_point(message_implements:amv_access_api.CreateVehicleRequest)
+    CreateVehicleRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use AccessCertificate.newBuilder() to construct.
-  private AccessCertificate(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use CreateVehicleRequest.newBuilder() to construct.
+  private CreateVehicleRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private AccessCertificate() {
-    id_ = "";
-    deviceAccessCertificate_ = "";
-    vehicleAccessCertificate_ = "";
+  private CreateVehicleRequest() {
     name_ = "";
+    description_ = "";
+    publicKeyBase64_ = "";
   }
 
   @java.lang.Override
@@ -27,7 +26,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AccessCertificate(
+  private CreateVehicleRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -54,27 +53,34 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+            org.amv.access.grpc.IssuerAuth.Builder subBuilder = null;
+            if (issuerAuth_ != null) {
+              subBuilder = issuerAuth_.toBuilder();
+            }
+            issuerAuth_ = input.readMessage(org.amv.access.grpc.IssuerAuth.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(issuerAuth_);
+              issuerAuth_ = subBuilder.buildPartial();
+            }
 
-            id_ = s;
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            deviceAccessCertificate_ = s;
+            name_ = s;
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            vehicleAccessCertificate_ = s;
+            description_ = s;
             break;
           }
           case 34: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            name_ = s;
+            publicKeyBase64_ = s;
             break;
           }
         }
@@ -91,122 +97,41 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return org.amv.access.grpc.AccessApi.internal_static_amv_access_api_AccessCertificate_descriptor;
+    return org.amv.access.grpc.AccessApi.internal_static_amv_access_api_CreateVehicleRequest_descriptor;
   }
 
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return org.amv.access.grpc.AccessApi.internal_static_amv_access_api_AccessCertificate_fieldAccessorTable
+    return org.amv.access.grpc.AccessApi.internal_static_amv_access_api_CreateVehicleRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            org.amv.access.grpc.AccessCertificate.class, org.amv.access.grpc.AccessCertificate.Builder.class);
+            org.amv.access.grpc.CreateVehicleRequest.class, org.amv.access.grpc.CreateVehicleRequest.Builder.class);
   }
 
-  public static final int ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object id_;
+  public static final int ISSUER_AUTH_FIELD_NUMBER = 1;
+  private org.amv.access.grpc.IssuerAuth issuerAuth_;
   /**
-   * <code>string id = 1;</code>
+   * <code>.amv_access_api.IssuerAuth issuer_auth = 1;</code>
    */
-  public java.lang.String getId() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      id_ = s;
-      return s;
-    }
+  public boolean hasIssuerAuth() {
+    return issuerAuth_ != null;
   }
   /**
-   * <code>string id = 1;</code>
+   * <code>.amv_access_api.IssuerAuth issuer_auth = 1;</code>
    */
-  public com.google.protobuf.ByteString
-      getIdBytes() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      id_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public org.amv.access.grpc.IssuerAuth getIssuerAuth() {
+    return issuerAuth_ == null ? org.amv.access.grpc.IssuerAuth.getDefaultInstance() : issuerAuth_;
+  }
+  /**
+   * <code>.amv_access_api.IssuerAuth issuer_auth = 1;</code>
+   */
+  public org.amv.access.grpc.IssuerAuthOrBuilder getIssuerAuthOrBuilder() {
+    return getIssuerAuth();
   }
 
-  public static final int DEVICE_ACCESS_CERTIFICATE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object deviceAccessCertificate_;
-  /**
-   * <code>string device_access_certificate = 2;</code>
-   */
-  public java.lang.String getDeviceAccessCertificate() {
-    java.lang.Object ref = deviceAccessCertificate_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      deviceAccessCertificate_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string device_access_certificate = 2;</code>
-   */
-  public com.google.protobuf.ByteString
-      getDeviceAccessCertificateBytes() {
-    java.lang.Object ref = deviceAccessCertificate_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      deviceAccessCertificate_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int VEHICLE_ACCESS_CERTIFICATE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object vehicleAccessCertificate_;
-  /**
-   * <code>string vehicle_access_certificate = 3;</code>
-   */
-  public java.lang.String getVehicleAccessCertificate() {
-    java.lang.Object ref = vehicleAccessCertificate_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      vehicleAccessCertificate_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string vehicle_access_certificate = 3;</code>
-   */
-  public com.google.protobuf.ByteString
-      getVehicleAccessCertificateBytes() {
-    java.lang.Object ref = vehicleAccessCertificate_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      vehicleAccessCertificate_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int NAME_FIELD_NUMBER = 4;
+  public static final int NAME_FIELD_NUMBER = 2;
   private volatile java.lang.Object name_;
   /**
-   * <code>string name = 4;</code>
+   * <code>string name = 2;</code>
    */
   public java.lang.String getName() {
     java.lang.Object ref = name_;
@@ -221,7 +146,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string name = 4;</code>
+   * <code>string name = 2;</code>
    */
   public com.google.protobuf.ByteString
       getNameBytes() {
@@ -231,6 +156,74 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       name_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int DESCRIPTION_FIELD_NUMBER = 3;
+  private volatile java.lang.Object description_;
+  /**
+   * <code>string description = 3;</code>
+   */
+  public java.lang.String getDescription() {
+    java.lang.Object ref = description_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      description_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string description = 3;</code>
+   */
+  public com.google.protobuf.ByteString
+      getDescriptionBytes() {
+    java.lang.Object ref = description_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      description_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int PUBLIC_KEY_BASE64_FIELD_NUMBER = 4;
+  private volatile java.lang.Object publicKeyBase64_;
+  /**
+   * <code>string public_key_base64 = 4;</code>
+   */
+  public java.lang.String getPublicKeyBase64() {
+    java.lang.Object ref = publicKeyBase64_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      publicKeyBase64_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string public_key_base64 = 4;</code>
+   */
+  public com.google.protobuf.ByteString
+      getPublicKeyBase64Bytes() {
+    java.lang.Object ref = publicKeyBase64_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      publicKeyBase64_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -249,17 +242,17 @@ private static final long serialVersionUID = 0L;
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
-    }
-    if (!getDeviceAccessCertificateBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, deviceAccessCertificate_);
-    }
-    if (!getVehicleAccessCertificateBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, vehicleAccessCertificate_);
+    if (issuerAuth_ != null) {
+      output.writeMessage(1, getIssuerAuth());
     }
     if (!getNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, name_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+    }
+    if (!getDescriptionBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, description_);
+    }
+    if (!getPublicKeyBase64Bytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, publicKeyBase64_);
     }
     unknownFields.writeTo(output);
   }
@@ -269,17 +262,18 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
-    }
-    if (!getDeviceAccessCertificateBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, deviceAccessCertificate_);
-    }
-    if (!getVehicleAccessCertificateBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, vehicleAccessCertificate_);
+    if (issuerAuth_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(1, getIssuerAuth());
     }
     if (!getNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, name_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+    }
+    if (!getDescriptionBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, description_);
+    }
+    if (!getPublicKeyBase64Bytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, publicKeyBase64_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -291,20 +285,23 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof org.amv.access.grpc.AccessCertificate)) {
+    if (!(obj instanceof org.amv.access.grpc.CreateVehicleRequest)) {
       return super.equals(obj);
     }
-    org.amv.access.grpc.AccessCertificate other = (org.amv.access.grpc.AccessCertificate) obj;
+    org.amv.access.grpc.CreateVehicleRequest other = (org.amv.access.grpc.CreateVehicleRequest) obj;
 
     boolean result = true;
-    result = result && getId()
-        .equals(other.getId());
-    result = result && getDeviceAccessCertificate()
-        .equals(other.getDeviceAccessCertificate());
-    result = result && getVehicleAccessCertificate()
-        .equals(other.getVehicleAccessCertificate());
+    result = result && (hasIssuerAuth() == other.hasIssuerAuth());
+    if (hasIssuerAuth()) {
+      result = result && getIssuerAuth()
+          .equals(other.getIssuerAuth());
+    }
     result = result && getName()
         .equals(other.getName());
+    result = result && getDescription()
+        .equals(other.getDescription());
+    result = result && getPublicKeyBase64()
+        .equals(other.getPublicKeyBase64());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -316,82 +313,84 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ID_FIELD_NUMBER;
-    hash = (53 * hash) + getId().hashCode();
-    hash = (37 * hash) + DEVICE_ACCESS_CERTIFICATE_FIELD_NUMBER;
-    hash = (53 * hash) + getDeviceAccessCertificate().hashCode();
-    hash = (37 * hash) + VEHICLE_ACCESS_CERTIFICATE_FIELD_NUMBER;
-    hash = (53 * hash) + getVehicleAccessCertificate().hashCode();
+    if (hasIssuerAuth()) {
+      hash = (37 * hash) + ISSUER_AUTH_FIELD_NUMBER;
+      hash = (53 * hash) + getIssuerAuth().hashCode();
+    }
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
+    hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+    hash = (53 * hash) + getDescription().hashCode();
+    hash = (37 * hash) + PUBLIC_KEY_BASE64_FIELD_NUMBER;
+    hash = (53 * hash) + getPublicKeyBase64().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static org.amv.access.grpc.AccessCertificate parseFrom(
+  public static org.amv.access.grpc.CreateVehicleRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.amv.access.grpc.AccessCertificate parseFrom(
+  public static org.amv.access.grpc.CreateVehicleRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.amv.access.grpc.AccessCertificate parseFrom(
+  public static org.amv.access.grpc.CreateVehicleRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.amv.access.grpc.AccessCertificate parseFrom(
+  public static org.amv.access.grpc.CreateVehicleRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.amv.access.grpc.AccessCertificate parseFrom(byte[] data)
+  public static org.amv.access.grpc.CreateVehicleRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.amv.access.grpc.AccessCertificate parseFrom(
+  public static org.amv.access.grpc.CreateVehicleRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.amv.access.grpc.AccessCertificate parseFrom(java.io.InputStream input)
+  public static org.amv.access.grpc.CreateVehicleRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.amv.access.grpc.AccessCertificate parseFrom(
+  public static org.amv.access.grpc.CreateVehicleRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.amv.access.grpc.AccessCertificate parseDelimitedFrom(java.io.InputStream input)
+  public static org.amv.access.grpc.CreateVehicleRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static org.amv.access.grpc.AccessCertificate parseDelimitedFrom(
+  public static org.amv.access.grpc.CreateVehicleRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.amv.access.grpc.AccessCertificate parseFrom(
+  public static org.amv.access.grpc.CreateVehicleRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.amv.access.grpc.AccessCertificate parseFrom(
+  public static org.amv.access.grpc.CreateVehicleRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -403,7 +402,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(org.amv.access.grpc.AccessCertificate prototype) {
+  public static Builder newBuilder(org.amv.access.grpc.CreateVehicleRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -418,25 +417,25 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code amv_access_api.AccessCertificate}
+   * Protobuf type {@code amv_access_api.CreateVehicleRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:amv_access_api.AccessCertificate)
-      org.amv.access.grpc.AccessCertificateOrBuilder {
+      // @@protoc_insertion_point(builder_implements:amv_access_api.CreateVehicleRequest)
+      org.amv.access.grpc.CreateVehicleRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.amv.access.grpc.AccessApi.internal_static_amv_access_api_AccessCertificate_descriptor;
+      return org.amv.access.grpc.AccessApi.internal_static_amv_access_api_CreateVehicleRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.amv.access.grpc.AccessApi.internal_static_amv_access_api_AccessCertificate_fieldAccessorTable
+      return org.amv.access.grpc.AccessApi.internal_static_amv_access_api_CreateVehicleRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.amv.access.grpc.AccessCertificate.class, org.amv.access.grpc.AccessCertificate.Builder.class);
+              org.amv.access.grpc.CreateVehicleRequest.class, org.amv.access.grpc.CreateVehicleRequest.Builder.class);
     }
 
-    // Construct using org.amv.access.grpc.AccessCertificate.newBuilder()
+    // Construct using org.amv.access.grpc.CreateVehicleRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -453,40 +452,48 @@ private static final long serialVersionUID = 0L;
     }
     public Builder clear() {
       super.clear();
-      id_ = "";
-
-      deviceAccessCertificate_ = "";
-
-      vehicleAccessCertificate_ = "";
-
+      if (issuerAuthBuilder_ == null) {
+        issuerAuth_ = null;
+      } else {
+        issuerAuth_ = null;
+        issuerAuthBuilder_ = null;
+      }
       name_ = "";
+
+      description_ = "";
+
+      publicKeyBase64_ = "";
 
       return this;
     }
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return org.amv.access.grpc.AccessApi.internal_static_amv_access_api_AccessCertificate_descriptor;
+      return org.amv.access.grpc.AccessApi.internal_static_amv_access_api_CreateVehicleRequest_descriptor;
     }
 
-    public org.amv.access.grpc.AccessCertificate getDefaultInstanceForType() {
-      return org.amv.access.grpc.AccessCertificate.getDefaultInstance();
+    public org.amv.access.grpc.CreateVehicleRequest getDefaultInstanceForType() {
+      return org.amv.access.grpc.CreateVehicleRequest.getDefaultInstance();
     }
 
-    public org.amv.access.grpc.AccessCertificate build() {
-      org.amv.access.grpc.AccessCertificate result = buildPartial();
+    public org.amv.access.grpc.CreateVehicleRequest build() {
+      org.amv.access.grpc.CreateVehicleRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public org.amv.access.grpc.AccessCertificate buildPartial() {
-      org.amv.access.grpc.AccessCertificate result = new org.amv.access.grpc.AccessCertificate(this);
-      result.id_ = id_;
-      result.deviceAccessCertificate_ = deviceAccessCertificate_;
-      result.vehicleAccessCertificate_ = vehicleAccessCertificate_;
+    public org.amv.access.grpc.CreateVehicleRequest buildPartial() {
+      org.amv.access.grpc.CreateVehicleRequest result = new org.amv.access.grpc.CreateVehicleRequest(this);
+      if (issuerAuthBuilder_ == null) {
+        result.issuerAuth_ = issuerAuth_;
+      } else {
+        result.issuerAuth_ = issuerAuthBuilder_.build();
+      }
       result.name_ = name_;
+      result.description_ = description_;
+      result.publicKeyBase64_ = publicKeyBase64_;
       onBuilt();
       return result;
     }
@@ -518,30 +525,29 @@ private static final long serialVersionUID = 0L;
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof org.amv.access.grpc.AccessCertificate) {
-        return mergeFrom((org.amv.access.grpc.AccessCertificate)other);
+      if (other instanceof org.amv.access.grpc.CreateVehicleRequest) {
+        return mergeFrom((org.amv.access.grpc.CreateVehicleRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(org.amv.access.grpc.AccessCertificate other) {
-      if (other == org.amv.access.grpc.AccessCertificate.getDefaultInstance()) return this;
-      if (!other.getId().isEmpty()) {
-        id_ = other.id_;
-        onChanged();
-      }
-      if (!other.getDeviceAccessCertificate().isEmpty()) {
-        deviceAccessCertificate_ = other.deviceAccessCertificate_;
-        onChanged();
-      }
-      if (!other.getVehicleAccessCertificate().isEmpty()) {
-        vehicleAccessCertificate_ = other.vehicleAccessCertificate_;
-        onChanged();
+    public Builder mergeFrom(org.amv.access.grpc.CreateVehicleRequest other) {
+      if (other == org.amv.access.grpc.CreateVehicleRequest.getDefaultInstance()) return this;
+      if (other.hasIssuerAuth()) {
+        mergeIssuerAuth(other.getIssuerAuth());
       }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        onChanged();
+      }
+      if (!other.getDescription().isEmpty()) {
+        description_ = other.description_;
+        onChanged();
+      }
+      if (!other.getPublicKeyBase64().isEmpty()) {
+        publicKeyBase64_ = other.publicKeyBase64_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -557,11 +563,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      org.amv.access.grpc.AccessCertificate parsedMessage = null;
+      org.amv.access.grpc.CreateVehicleRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (org.amv.access.grpc.AccessCertificate) e.getUnfinishedMessage();
+        parsedMessage = (org.amv.access.grpc.CreateVehicleRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -571,216 +577,126 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object id_ = "";
+    private org.amv.access.grpc.IssuerAuth issuerAuth_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.amv.access.grpc.IssuerAuth, org.amv.access.grpc.IssuerAuth.Builder, org.amv.access.grpc.IssuerAuthOrBuilder> issuerAuthBuilder_;
     /**
-     * <code>string id = 1;</code>
+     * <code>.amv_access_api.IssuerAuth issuer_auth = 1;</code>
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
+    public boolean hasIssuerAuth() {
+      return issuerAuthBuilder_ != null || issuerAuth_ != null;
+    }
+    /**
+     * <code>.amv_access_api.IssuerAuth issuer_auth = 1;</code>
+     */
+    public org.amv.access.grpc.IssuerAuth getIssuerAuth() {
+      if (issuerAuthBuilder_ == null) {
+        return issuerAuth_ == null ? org.amv.access.grpc.IssuerAuth.getDefaultInstance() : issuerAuth_;
       } else {
-        return (java.lang.String) ref;
+        return issuerAuthBuilder_.getMessage();
       }
     }
     /**
-     * <code>string id = 1;</code>
+     * <code>.amv_access_api.IssuerAuth issuer_auth = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
+    public Builder setIssuerAuth(org.amv.access.grpc.IssuerAuth value) {
+      if (issuerAuthBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        issuerAuth_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        issuerAuthBuilder_.setMessage(value);
       }
-    }
-    /**
-     * <code>string id = 1;</code>
-     */
-    public Builder setId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      id_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string id = 1;</code>
-     */
-    public Builder clearId() {
-      
-      id_ = getDefaultInstance().getId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string id = 1;</code>
-     */
-    public Builder setIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      id_ = value;
-      onChanged();
-      return this;
-    }
 
-    private java.lang.Object deviceAccessCertificate_ = "";
+      return this;
+    }
     /**
-     * <code>string device_access_certificate = 2;</code>
+     * <code>.amv_access_api.IssuerAuth issuer_auth = 1;</code>
      */
-    public java.lang.String getDeviceAccessCertificate() {
-      java.lang.Object ref = deviceAccessCertificate_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        deviceAccessCertificate_ = s;
-        return s;
+    public Builder setIssuerAuth(
+        org.amv.access.grpc.IssuerAuth.Builder builderForValue) {
+      if (issuerAuthBuilder_ == null) {
+        issuerAuth_ = builderForValue.build();
+        onChanged();
       } else {
-        return (java.lang.String) ref;
+        issuerAuthBuilder_.setMessage(builderForValue.build());
       }
-    }
-    /**
-     * <code>string device_access_certificate = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getDeviceAccessCertificateBytes() {
-      java.lang.Object ref = deviceAccessCertificate_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        deviceAccessCertificate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string device_access_certificate = 2;</code>
-     */
-    public Builder setDeviceAccessCertificate(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      deviceAccessCertificate_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string device_access_certificate = 2;</code>
-     */
-    public Builder clearDeviceAccessCertificate() {
-      
-      deviceAccessCertificate_ = getDefaultInstance().getDeviceAccessCertificate();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string device_access_certificate = 2;</code>
-     */
-    public Builder setDeviceAccessCertificateBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      deviceAccessCertificate_ = value;
-      onChanged();
-      return this;
-    }
 
-    private java.lang.Object vehicleAccessCertificate_ = "";
+      return this;
+    }
     /**
-     * <code>string vehicle_access_certificate = 3;</code>
+     * <code>.amv_access_api.IssuerAuth issuer_auth = 1;</code>
      */
-    public java.lang.String getVehicleAccessCertificate() {
-      java.lang.Object ref = vehicleAccessCertificate_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        vehicleAccessCertificate_ = s;
-        return s;
+    public Builder mergeIssuerAuth(org.amv.access.grpc.IssuerAuth value) {
+      if (issuerAuthBuilder_ == null) {
+        if (issuerAuth_ != null) {
+          issuerAuth_ =
+            org.amv.access.grpc.IssuerAuth.newBuilder(issuerAuth_).mergeFrom(value).buildPartial();
+        } else {
+          issuerAuth_ = value;
+        }
+        onChanged();
       } else {
-        return (java.lang.String) ref;
+        issuerAuthBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.amv_access_api.IssuerAuth issuer_auth = 1;</code>
+     */
+    public Builder clearIssuerAuth() {
+      if (issuerAuthBuilder_ == null) {
+        issuerAuth_ = null;
+        onChanged();
+      } else {
+        issuerAuth_ = null;
+        issuerAuthBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.amv_access_api.IssuerAuth issuer_auth = 1;</code>
+     */
+    public org.amv.access.grpc.IssuerAuth.Builder getIssuerAuthBuilder() {
+      
+      onChanged();
+      return getIssuerAuthFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.amv_access_api.IssuerAuth issuer_auth = 1;</code>
+     */
+    public org.amv.access.grpc.IssuerAuthOrBuilder getIssuerAuthOrBuilder() {
+      if (issuerAuthBuilder_ != null) {
+        return issuerAuthBuilder_.getMessageOrBuilder();
+      } else {
+        return issuerAuth_ == null ?
+            org.amv.access.grpc.IssuerAuth.getDefaultInstance() : issuerAuth_;
       }
     }
     /**
-     * <code>string vehicle_access_certificate = 3;</code>
+     * <code>.amv_access_api.IssuerAuth issuer_auth = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getVehicleAccessCertificateBytes() {
-      java.lang.Object ref = vehicleAccessCertificate_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        vehicleAccessCertificate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.amv.access.grpc.IssuerAuth, org.amv.access.grpc.IssuerAuth.Builder, org.amv.access.grpc.IssuerAuthOrBuilder> 
+        getIssuerAuthFieldBuilder() {
+      if (issuerAuthBuilder_ == null) {
+        issuerAuthBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.amv.access.grpc.IssuerAuth, org.amv.access.grpc.IssuerAuth.Builder, org.amv.access.grpc.IssuerAuthOrBuilder>(
+                getIssuerAuth(),
+                getParentForChildren(),
+                isClean());
+        issuerAuth_ = null;
       }
-    }
-    /**
-     * <code>string vehicle_access_certificate = 3;</code>
-     */
-    public Builder setVehicleAccessCertificate(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      vehicleAccessCertificate_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string vehicle_access_certificate = 3;</code>
-     */
-    public Builder clearVehicleAccessCertificate() {
-      
-      vehicleAccessCertificate_ = getDefaultInstance().getVehicleAccessCertificate();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string vehicle_access_certificate = 3;</code>
-     */
-    public Builder setVehicleAccessCertificateBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      vehicleAccessCertificate_ = value;
-      onChanged();
-      return this;
+      return issuerAuthBuilder_;
     }
 
     private java.lang.Object name_ = "";
     /**
-     * <code>string name = 4;</code>
+     * <code>string name = 2;</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -795,7 +711,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 4;</code>
+     * <code>string name = 2;</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -811,7 +727,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 4;</code>
+     * <code>string name = 2;</code>
      */
     public Builder setName(
         java.lang.String value) {
@@ -824,7 +740,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 4;</code>
+     * <code>string name = 2;</code>
      */
     public Builder clearName() {
       
@@ -833,7 +749,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 4;</code>
+     * <code>string name = 2;</code>
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
@@ -843,6 +759,144 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       name_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object description_ = "";
+    /**
+     * <code>string description = 3;</code>
+     */
+    public java.lang.String getDescription() {
+      java.lang.Object ref = description_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        description_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string description = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDescriptionBytes() {
+      java.lang.Object ref = description_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        description_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string description = 3;</code>
+     */
+    public Builder setDescription(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      description_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string description = 3;</code>
+     */
+    public Builder clearDescription() {
+      
+      description_ = getDefaultInstance().getDescription();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string description = 3;</code>
+     */
+    public Builder setDescriptionBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      description_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object publicKeyBase64_ = "";
+    /**
+     * <code>string public_key_base64 = 4;</code>
+     */
+    public java.lang.String getPublicKeyBase64() {
+      java.lang.Object ref = publicKeyBase64_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        publicKeyBase64_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string public_key_base64 = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPublicKeyBase64Bytes() {
+      java.lang.Object ref = publicKeyBase64_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        publicKeyBase64_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string public_key_base64 = 4;</code>
+     */
+    public Builder setPublicKeyBase64(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      publicKeyBase64_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string public_key_base64 = 4;</code>
+     */
+    public Builder clearPublicKeyBase64() {
+      
+      publicKeyBase64_ = getDefaultInstance().getPublicKeyBase64();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string public_key_base64 = 4;</code>
+     */
+    public Builder setPublicKeyBase64Bytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      publicKeyBase64_ = value;
       onChanged();
       return this;
     }
@@ -857,39 +911,39 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:amv_access_api.AccessCertificate)
+    // @@protoc_insertion_point(builder_scope:amv_access_api.CreateVehicleRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:amv_access_api.AccessCertificate)
-  private static final org.amv.access.grpc.AccessCertificate DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:amv_access_api.CreateVehicleRequest)
+  private static final org.amv.access.grpc.CreateVehicleRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new org.amv.access.grpc.AccessCertificate();
+    DEFAULT_INSTANCE = new org.amv.access.grpc.CreateVehicleRequest();
   }
 
-  public static org.amv.access.grpc.AccessCertificate getDefaultInstance() {
+  public static org.amv.access.grpc.CreateVehicleRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<AccessCertificate>
-      PARSER = new com.google.protobuf.AbstractParser<AccessCertificate>() {
-    public AccessCertificate parsePartialFrom(
+  private static final com.google.protobuf.Parser<CreateVehicleRequest>
+      PARSER = new com.google.protobuf.AbstractParser<CreateVehicleRequest>() {
+    public CreateVehicleRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AccessCertificate(input, extensionRegistry);
+      return new CreateVehicleRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<AccessCertificate> parser() {
+  public static com.google.protobuf.Parser<CreateVehicleRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<AccessCertificate> getParserForType() {
+  public com.google.protobuf.Parser<CreateVehicleRequest> getParserForType() {
     return PARSER;
   }
 
-  public org.amv.access.grpc.AccessCertificate getDefaultInstanceForType() {
+  public org.amv.access.grpc.CreateVehicleRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -38,6 +38,11 @@ CreateDeviceCertificateResponseDto response = deviceCertClient
         .execute();
 ```
 
+## Build
+```bash
+$ ./gradlew releaseCheck build publishToMavenLocal -Prelease.stage=SNAPSHOT -Prelease.scope=patch
+```
+
 ## Contributing
 For information on how to contribute, please refer to our [contribution guide](https://github.com/amvnetworks/github-commons/blob/master/CONTRIBUTING.md).
 
