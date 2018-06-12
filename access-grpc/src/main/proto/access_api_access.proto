@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.amv.access.grpc.access";
+option java_outer_classname = "AccessProto";
+
+package amv_access_api;
+
+import "access_api_auth.proto";
+
+
+service AccessService {
+  rpc createAccessCertificate(CreateAccessCertificateRequest) returns (CreateAccessCertificateResponse) {}
+  rpc signAccessCertificate(UpdateAccessCertificateRequest) returns (CreateAccessCertificateResponse) {}
+}
+
+
+message AccessCertificate {
+  string id = 1;
+  string device_access_certificate = 2;
+  string vehicle_access_certificate = 3;
+  string name = 4;
+}
+
+message GetAccessCertificatesResponse {
+  repeated AccessCertificate access_certificates = 1;
+}
+
+message CreateAccessCertificateRequest {
+  IssuerAuth issuer_auth = 1;
+  string app_id = 2;
+  string device_serial_number = 3;
+  string vehicle_serial_number = 4;
+  int64 validity_start = 5;
+  int64 validity_end = 6;
+}
+
+message CreateAccessCertificateResponse {
+  AccessCertificateSigningRequest access_certificate_signing_request = 1;
+}
+
+message UpdateAccessCertificateRequest {
+  IssuerAuth issuer_auth = 1;
+  string access_certificate_id = 2;
+  string vehicle_access_certificate_signature_base64 = 3;
+  string signed_vehicle_access_certificate_base64 = 4;
+  string device_access_certificate_signature_base64 = 5;
+  string signed_device_access_certificate_base64 = 6;
+}
+
+message AccessCertificateSigningRequest {
+  string id = 1;
+  string device_access_certificate = 2;
+  string vehicle_access_certificate = 3;
+}

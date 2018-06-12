@@ -14,91 +14,6 @@ public final class AccessApi {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_amv_access_api_CreateVehicleRequest_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_amv_access_api_CreateVehicleRequest_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_amv_access_api_CreateVehicleResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_amv_access_api_CreateVehicleResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_amv_access_api_ErrorResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_amv_access_api_ErrorResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_amv_access_api_ErrorInfo_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_amv_access_api_ErrorInfo_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_amv_access_api_NonceAuth_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_amv_access_api_NonceAuth_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_amv_access_api_IssuerAuth_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_amv_access_api_IssuerAuth_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_amv_access_api_DeviceAuth_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_amv_access_api_DeviceAuth_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_amv_access_api_AccessCertificate_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_amv_access_api_AccessCertificate_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_amv_access_api_GetAccessCertificatesResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_amv_access_api_GetAccessCertificatesResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_amv_access_api_CreateAccessCertificateRequest_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_amv_access_api_CreateAccessCertificateRequest_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_amv_access_api_CreateAccessCertificateResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_amv_access_api_CreateAccessCertificateResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_amv_access_api_UpdateAccessCertificateRequest_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_amv_access_api_UpdateAccessCertificateRequest_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_amv_access_api_AccessCertificateSigningRequest_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_amv_access_api_AccessCertificateSigningRequest_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_amv_access_api_CreateDeviceCertificateRequest_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_amv_access_api_CreateDeviceCertificateRequest_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_amv_access_api_CreateDeviceCertificateResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_amv_access_api_CreateDeviceCertificateResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_amv_access_api_DeviceCertificate_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_amv_access_api_DeviceCertificate_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_amv_access_api_DeviceCertificateResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_amv_access_api_DeviceCertificateResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -108,66 +23,11 @@ public final class AccessApi {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\020access_api.proto\022\016amv_access_api\"\205\001\n\024C" +
-      "reateVehicleRequest\022/\n\013issuer_auth\030\001 \001(\013" +
-      "2\032.amv_access_api.IssuerAuth\022\014\n\004name\030\002 \001" +
-      "(\t\022\023\n\013description\030\003 \001(\t\022\031\n\021public_key_ba" +
-      "se64\030\004 \001(\t\"t\n\025CreateVehicleResponse\022\035\n\025v" +
-      "ehicle_serial_number\030\001 \001(\t\022\014\n\004name\030\002 \001(\t" +
-      "\022\023\n\013description\030\003 \001(\t\022\031\n\021public_key_base" +
-      "64\030\004 \001(\t\":\n\rErrorResponse\022)\n\006errors\030\001 \003(" +
-      "\0132\031.amv_access_api.ErrorInfo\":\n\tErrorInf" +
-      "o\022\r\n\005title\030\001 \001(\t\022\016\n\006source\030\002 \001(\t\022\016\n\006deta" +
-      "il\030\003 \001(\t\"3\n\tNonceAuth\022\r\n\005nonce\030\001 \001(\t\022\027\n\017" +
-      "nonce_signature\030\002 \001(\t\"P\n\nIssuerAuth\022-\n\nn" +
-      "once_auth\030\001 \001(\0132\031.amv_access_api.NonceAu" +
-      "th\022\023\n\013issuer_uuid\030\002 \001(\t\"Y\n\nDeviceAuth\022-\n" +
-      "\nnonce_auth\030\001 \001(\0132\031.amv_access_api.Nonce" +
-      "Auth\022\034\n\024device_serial_number\030\002 \001(\t\"t\n\021Ac" +
-      "cessCertificate\022\n\n\002id\030\001 \001(\t\022!\n\031device_ac" +
-      "cess_certificate\030\002 \001(\t\022\"\n\032vehicle_access" +
-      "_certificate\030\003 \001(\t\022\014\n\004name\030\004 \001(\t\"_\n\035GetA" +
-      "ccessCertificatesResponse\022>\n\023access_cert" +
-      "ificates\030\001 \003(\0132!.amv_access_api.AccessCe" +
-      "rtificate\"\314\001\n\036CreateAccessCertificateReq" +
-      "uest\022/\n\013issuer_auth\030\001 \001(\0132\032.amv_access_a" +
-      "pi.IssuerAuth\022\016\n\006app_id\030\002 \001(\t\022\034\n\024device_" +
-      "serial_number\030\003 \001(\t\022\035\n\025vehicle_serial_nu" +
-      "mber\030\004 \001(\t\022\026\n\016validity_start\030\005 \001(\003\022\024\n\014va" +
-      "lidity_end\030\006 \001(\003\"~\n\037CreateAccessCertific" +
-      "ateResponse\022[\n\"access_certificate_signin" +
-      "g_request\030\001 \001(\0132/.amv_access_api.AccessC" +
-      "ertificateSigningRequest\"\274\002\n\036UpdateAcces" +
-      "sCertificateRequest\022/\n\013issuer_auth\030\001 \001(\013" +
-      "2\032.amv_access_api.IssuerAuth\022\035\n\025access_c" +
-      "ertificate_id\030\002 \001(\t\0223\n+vehicle_access_ce" +
-      "rtificate_signature_base64\030\003 \001(\t\0220\n(sign" +
-      "ed_vehicle_access_certificate_base64\030\004 \001" +
-      "(\t\0222\n*device_access_certificate_signatur" +
-      "e_base64\030\005 \001(\t\022/\n\'signed_device_access_c" +
-      "ertificate_base64\030\006 \001(\t\"t\n\037AccessCertifi" +
-      "cateSigningRequest\022\n\n\002id\030\001 \001(\t\022!\n\031device" +
-      "_access_certificate\030\002 \001(\t\022\"\n\032vehicle_acc" +
-      "ess_certificate\030\003 \001(\t\";\n\036CreateDeviceCer" +
-      "tificateRequest\022\031\n\021device_public_key\030\001 \001" +
-      "(\t\"`\n\037CreateDeviceCertificateResponse\022=\n" +
-      "\022device_certificate\030\001 \001(\0132!.amv_access_a" +
-      "pi.DeviceCertificate\"J\n\021DeviceCertificat" +
-      "e\022\032\n\022device_certificate\030\001 \001(\t\022\031\n\021issuer_" +
-      "public_key\030\002 \001(\t\"Z\n\031DeviceCertificateRes" +
-      "ponse\022=\n\022device_certificate\030\001 \001(\0132!.amv_" +
-      "access_api.DeviceCertificate2p\n\016VehicleS" +
-      "ervice\022^\n\rcreateVehicle\022$.amv_access_api" +
-      ".CreateVehicleRequest\032%.amv_access_api.C" +
-      "reateVehicleResponse\"\0002\215\002\n\021AccessCertSer" +
-      "vice\022|\n\027createAccessCertificate\022..amv_ac" +
-      "cess_api.CreateAccessCertificateRequest\032" +
-      "/.amv_access_api.CreateAccessCertificate" +
-      "Response\"\000\022z\n\025signAccessCertificate\022..am" +
-      "v_access_api.UpdateAccessCertificateRequ" +
-      "est\032/.amv_access_api.CreateAccessCertifi" +
-      "cateResponse\"\000B\027\n\023org.amv.access.grpcP\001b" +
-      "\006proto3"
+      "\n\020access_api.proto\022\016amv_access_api\032\027acce" +
+      "ss_api_access.proto\032\025access_api_auth.pro" +
+      "to\032\027access_api_device.proto\032\030access_api_" +
+      "vehicle.protoB\027\n\023org.amv.access.grpcP\001b\006" +
+      "proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -180,109 +40,15 @@ public final class AccessApi {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          org.amv.access.grpc.access.AccessProto.getDescriptor(),
+          org.amv.access.grpc.auth.AccessAuthProto.getDescriptor(),
+          org.amv.access.grpc.device.AccessDeviceProto.getDescriptor(),
+          org.amv.access.grpc.vehicle.AccessVehicleProto.getDescriptor(),
         }, assigner);
-    internal_static_amv_access_api_CreateVehicleRequest_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_amv_access_api_CreateVehicleRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_amv_access_api_CreateVehicleRequest_descriptor,
-        new java.lang.String[] { "IssuerAuth", "Name", "Description", "PublicKeyBase64", });
-    internal_static_amv_access_api_CreateVehicleResponse_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_amv_access_api_CreateVehicleResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_amv_access_api_CreateVehicleResponse_descriptor,
-        new java.lang.String[] { "VehicleSerialNumber", "Name", "Description", "PublicKeyBase64", });
-    internal_static_amv_access_api_ErrorResponse_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_amv_access_api_ErrorResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_amv_access_api_ErrorResponse_descriptor,
-        new java.lang.String[] { "Errors", });
-    internal_static_amv_access_api_ErrorInfo_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_amv_access_api_ErrorInfo_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_amv_access_api_ErrorInfo_descriptor,
-        new java.lang.String[] { "Title", "Source", "Detail", });
-    internal_static_amv_access_api_NonceAuth_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_amv_access_api_NonceAuth_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_amv_access_api_NonceAuth_descriptor,
-        new java.lang.String[] { "Nonce", "NonceSignature", });
-    internal_static_amv_access_api_IssuerAuth_descriptor =
-      getDescriptor().getMessageTypes().get(5);
-    internal_static_amv_access_api_IssuerAuth_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_amv_access_api_IssuerAuth_descriptor,
-        new java.lang.String[] { "NonceAuth", "IssuerUuid", });
-    internal_static_amv_access_api_DeviceAuth_descriptor =
-      getDescriptor().getMessageTypes().get(6);
-    internal_static_amv_access_api_DeviceAuth_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_amv_access_api_DeviceAuth_descriptor,
-        new java.lang.String[] { "NonceAuth", "DeviceSerialNumber", });
-    internal_static_amv_access_api_AccessCertificate_descriptor =
-      getDescriptor().getMessageTypes().get(7);
-    internal_static_amv_access_api_AccessCertificate_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_amv_access_api_AccessCertificate_descriptor,
-        new java.lang.String[] { "Id", "DeviceAccessCertificate", "VehicleAccessCertificate", "Name", });
-    internal_static_amv_access_api_GetAccessCertificatesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(8);
-    internal_static_amv_access_api_GetAccessCertificatesResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_amv_access_api_GetAccessCertificatesResponse_descriptor,
-        new java.lang.String[] { "AccessCertificates", });
-    internal_static_amv_access_api_CreateAccessCertificateRequest_descriptor =
-      getDescriptor().getMessageTypes().get(9);
-    internal_static_amv_access_api_CreateAccessCertificateRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_amv_access_api_CreateAccessCertificateRequest_descriptor,
-        new java.lang.String[] { "IssuerAuth", "AppId", "DeviceSerialNumber", "VehicleSerialNumber", "ValidityStart", "ValidityEnd", });
-    internal_static_amv_access_api_CreateAccessCertificateResponse_descriptor =
-      getDescriptor().getMessageTypes().get(10);
-    internal_static_amv_access_api_CreateAccessCertificateResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_amv_access_api_CreateAccessCertificateResponse_descriptor,
-        new java.lang.String[] { "AccessCertificateSigningRequest", });
-    internal_static_amv_access_api_UpdateAccessCertificateRequest_descriptor =
-      getDescriptor().getMessageTypes().get(11);
-    internal_static_amv_access_api_UpdateAccessCertificateRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_amv_access_api_UpdateAccessCertificateRequest_descriptor,
-        new java.lang.String[] { "IssuerAuth", "AccessCertificateId", "VehicleAccessCertificateSignatureBase64", "SignedVehicleAccessCertificateBase64", "DeviceAccessCertificateSignatureBase64", "SignedDeviceAccessCertificateBase64", });
-    internal_static_amv_access_api_AccessCertificateSigningRequest_descriptor =
-      getDescriptor().getMessageTypes().get(12);
-    internal_static_amv_access_api_AccessCertificateSigningRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_amv_access_api_AccessCertificateSigningRequest_descriptor,
-        new java.lang.String[] { "Id", "DeviceAccessCertificate", "VehicleAccessCertificate", });
-    internal_static_amv_access_api_CreateDeviceCertificateRequest_descriptor =
-      getDescriptor().getMessageTypes().get(13);
-    internal_static_amv_access_api_CreateDeviceCertificateRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_amv_access_api_CreateDeviceCertificateRequest_descriptor,
-        new java.lang.String[] { "DevicePublicKey", });
-    internal_static_amv_access_api_CreateDeviceCertificateResponse_descriptor =
-      getDescriptor().getMessageTypes().get(14);
-    internal_static_amv_access_api_CreateDeviceCertificateResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_amv_access_api_CreateDeviceCertificateResponse_descriptor,
-        new java.lang.String[] { "DeviceCertificate", });
-    internal_static_amv_access_api_DeviceCertificate_descriptor =
-      getDescriptor().getMessageTypes().get(15);
-    internal_static_amv_access_api_DeviceCertificate_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_amv_access_api_DeviceCertificate_descriptor,
-        new java.lang.String[] { "DeviceCertificate", "IssuerPublicKey", });
-    internal_static_amv_access_api_DeviceCertificateResponse_descriptor =
-      getDescriptor().getMessageTypes().get(16);
-    internal_static_amv_access_api_DeviceCertificateResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_amv_access_api_DeviceCertificateResponse_descriptor,
-        new java.lang.String[] { "DeviceCertificate", });
+    org.amv.access.grpc.access.AccessProto.getDescriptor();
+    org.amv.access.grpc.auth.AccessAuthProto.getDescriptor();
+    org.amv.access.grpc.device.AccessDeviceProto.getDescriptor();
+    org.amv.access.grpc.vehicle.AccessVehicleProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

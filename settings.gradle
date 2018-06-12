@@ -7,3 +7,5 @@ include 'access-client-android'
 include 'access-client-model-android'
 include 'access-grpc'
 
+// prevent protobuf caused "warning: no @param/@return" javadoc warnings
+startParameter.excludedTaskNames += ':access-grpc:javadoc'

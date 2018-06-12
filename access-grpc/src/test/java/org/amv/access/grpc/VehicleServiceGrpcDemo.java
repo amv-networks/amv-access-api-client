@@ -5,7 +5,12 @@ import io.grpc.Server;
 import io.grpc.inprocess.InProcessChannelBuilder;
 import io.grpc.inprocess.InProcessServerBuilder;
 import io.grpc.stub.StreamObserver;
+import org.amv.access.grpc.vehicle.CreateVehicleRequest;
+import org.amv.access.grpc.vehicle.CreateVehicleResponse;
+import org.amv.access.grpc.vehicle.VehicleServiceGrpc;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -16,21 +21,33 @@ import static org.junit.Assert.assertThat;
 
 public class VehicleServiceGrpcDemo {
 
-    @Test
-    public void itShouldCreateVehicle() throws IOException {
+    private ManagedChannel channel;
+    private Server server;
+
+    @Before
+    public void setUp() throws IOException {
         VehicleServiceDemo vehicleServiceDemo = new VehicleServiceDemo();
 
         String uniqueName = InProcessServerBuilder.generateName();
-        Server server = InProcessServerBuilder.forName(uniqueName)
+
+        this.channel = InProcessChannelBuilder.forName(uniqueName)
+                .directExecutor()
+                .build();
+
+        this.server = InProcessServerBuilder.forName(uniqueName)
                 .directExecutor()
                 .addService(vehicleServiceDemo)
                 .build()
                 .start();
+    }
 
-        ManagedChannel channel = InProcessChannelBuilder.forName(uniqueName)
-                .directExecutor()
-                .build();
+    @After
+    public void tearDown() {
+        this.server.shutdownNow();
+    }
 
+    @Test
+    public void itShouldCreateVehicle() {
         VehicleServiceGrpc.VehicleServiceBlockingStub stub = VehicleServiceGrpc.newBlockingStub(channel);
 
         String vehicleName = RandomStringUtils.randomAlphabetic(10);

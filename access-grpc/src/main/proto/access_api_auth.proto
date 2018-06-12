@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.amv.access.grpc.auth";
+option java_outer_classname = "AccessAuthProto";
+
+package amv_access_api;
+
+message NonceAuth {
+  string nonce = 1;
+  string nonce_signature = 2;
+}
+
+message IssuerAuth {
+  NonceAuth nonce_auth = 1;
+  string issuer_uuid = 2;
+}
+
+message DeviceAuth {
+  NonceAuth nonce_auth = 1;
+  string device_serial_number = 2;
+}

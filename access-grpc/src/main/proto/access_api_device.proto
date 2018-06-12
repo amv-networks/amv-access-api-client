@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.amv.access.grpc.device";
+option java_outer_classname = "AccessDeviceProto";
+
+package amv_access_api;
+
+import "access_api_auth.proto";
+
+
+service DeviceService {
+  rpc createDeviceCertificate(CreateDeviceCertificateRequest) returns (CreateDeviceCertificateResponse) {}
+}
+
+
+message CreateDeviceCertificateRequest {
+  string device_public_key = 1;
+}
+
+message CreateDeviceCertificateResponse {
+  DeviceCertificate device_certificate = 1;
+}
+
+message DeviceCertificate {
+  string device_certificate = 1;
+  string issuer_public_key = 2;
+}
+
+message DeviceCertificateResponse {
+  DeviceCertificate device_certificate = 1;
+}
