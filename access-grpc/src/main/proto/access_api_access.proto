@@ -10,8 +10,9 @@ import "access_api_auth.proto";
 
 
 service AccessService {
+  rpc getAccessCertificates(GetAccessCertificatesRequest) returns (GetAccessCertificatesResponse) {}
   rpc createAccessCertificate(CreateAccessCertificateRequest) returns (CreateAccessCertificateResponse) {}
-  rpc signAccessCertificate(UpdateAccessCertificateRequest) returns (CreateAccessCertificateResponse) {}
+  rpc signAccessCertificate(SignAccessCertificateRequest) returns (SignAccessCertificateResponse) {}
 }
 
 
@@ -20,6 +21,10 @@ message AccessCertificate {
   string device_access_certificate = 2;
   string vehicle_access_certificate = 3;
   string name = 4;
+}
+
+message GetAccessCertificatesRequest {
+  DeviceAuth device_auth = 1;
 }
 
 message GetAccessCertificatesResponse {
@@ -39,7 +44,13 @@ message CreateAccessCertificateResponse {
   AccessCertificateSigningRequest access_certificate_signing_request = 1;
 }
 
-message UpdateAccessCertificateRequest {
+message AccessCertificateSigningRequest {
+  string id = 1;
+  string device_access_certificate = 2;
+  string vehicle_access_certificate = 3;
+}
+
+message SignAccessCertificateRequest {
   IssuerAuth issuer_auth = 1;
   string access_certificate_id = 2;
   string vehicle_access_certificate_signature_base64 = 3;
@@ -48,8 +59,6 @@ message UpdateAccessCertificateRequest {
   string signed_device_access_certificate_base64 = 6;
 }
 
-message AccessCertificateSigningRequest {
-  string id = 1;
-  string device_access_certificate = 2;
-  string vehicle_access_certificate = 3;
+message SignAccessCertificateResponse{
+  AccessCertificate access_certificate = 1;
 }

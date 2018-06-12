@@ -4,18 +4,18 @@
 package org.amv.access.grpc.access;
 
 /**
- * Protobuf type {@code amv_access_api.UpdateAccessCertificateRequest}
+ * Protobuf type {@code amv_access_api.SignAccessCertificateRequest}
  */
-public  final class UpdateAccessCertificateRequest extends
+public  final class SignAccessCertificateRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:amv_access_api.UpdateAccessCertificateRequest)
-    UpdateAccessCertificateRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:amv_access_api.SignAccessCertificateRequest)
+    SignAccessCertificateRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use UpdateAccessCertificateRequest.newBuilder() to construct.
-  private UpdateAccessCertificateRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use SignAccessCertificateRequest.newBuilder() to construct.
+  private SignAccessCertificateRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private UpdateAccessCertificateRequest() {
+  private SignAccessCertificateRequest() {
     accessCertificateId_ = "";
     vehicleAccessCertificateSignatureBase64_ = "";
     signedVehicleAccessCertificateBase64_ = "";
@@ -28,7 +28,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpdateAccessCertificateRequest(
+  private SignAccessCertificateRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -111,14 +111,14 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return org.amv.access.grpc.access.AccessProto.internal_static_amv_access_api_UpdateAccessCertificateRequest_descriptor;
+    return org.amv.access.grpc.access.AccessProto.internal_static_amv_access_api_SignAccessCertificateRequest_descriptor;
   }
 
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return org.amv.access.grpc.access.AccessProto.internal_static_amv_access_api_UpdateAccessCertificateRequest_fieldAccessorTable
+    return org.amv.access.grpc.access.AccessProto.internal_static_amv_access_api_SignAccessCertificateRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            org.amv.access.grpc.access.UpdateAccessCertificateRequest.class, org.amv.access.grpc.access.UpdateAccessCertificateRequest.Builder.class);
+            org.amv.access.grpc.access.SignAccessCertificateRequest.class, org.amv.access.grpc.access.SignAccessCertificateRequest.Builder.class);
   }
 
   public static final int ISSUER_AUTH_FIELD_NUMBER = 1;
@@ -379,10 +379,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof org.amv.access.grpc.access.UpdateAccessCertificateRequest)) {
+    if (!(obj instanceof org.amv.access.grpc.access.SignAccessCertificateRequest)) {
       return super.equals(obj);
     }
-    org.amv.access.grpc.access.UpdateAccessCertificateRequest other = (org.amv.access.grpc.access.UpdateAccessCertificateRequest) obj;
+    org.amv.access.grpc.access.SignAccessCertificateRequest other = (org.amv.access.grpc.access.SignAccessCertificateRequest) obj;
 
     boolean result = true;
     result = result && (hasIssuerAuth() == other.hasIssuerAuth());
@@ -430,69 +430,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static org.amv.access.grpc.access.UpdateAccessCertificateRequest parseFrom(
+  public static org.amv.access.grpc.access.SignAccessCertificateRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.amv.access.grpc.access.UpdateAccessCertificateRequest parseFrom(
+  public static org.amv.access.grpc.access.SignAccessCertificateRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.amv.access.grpc.access.UpdateAccessCertificateRequest parseFrom(
+  public static org.amv.access.grpc.access.SignAccessCertificateRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.amv.access.grpc.access.UpdateAccessCertificateRequest parseFrom(
+  public static org.amv.access.grpc.access.SignAccessCertificateRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.amv.access.grpc.access.UpdateAccessCertificateRequest parseFrom(byte[] data)
+  public static org.amv.access.grpc.access.SignAccessCertificateRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.amv.access.grpc.access.UpdateAccessCertificateRequest parseFrom(
+  public static org.amv.access.grpc.access.SignAccessCertificateRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.amv.access.grpc.access.UpdateAccessCertificateRequest parseFrom(java.io.InputStream input)
+  public static org.amv.access.grpc.access.SignAccessCertificateRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.amv.access.grpc.access.UpdateAccessCertificateRequest parseFrom(
+  public static org.amv.access.grpc.access.SignAccessCertificateRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.amv.access.grpc.access.UpdateAccessCertificateRequest parseDelimitedFrom(java.io.InputStream input)
+  public static org.amv.access.grpc.access.SignAccessCertificateRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static org.amv.access.grpc.access.UpdateAccessCertificateRequest parseDelimitedFrom(
+  public static org.amv.access.grpc.access.SignAccessCertificateRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.amv.access.grpc.access.UpdateAccessCertificateRequest parseFrom(
+  public static org.amv.access.grpc.access.SignAccessCertificateRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.amv.access.grpc.access.UpdateAccessCertificateRequest parseFrom(
+  public static org.amv.access.grpc.access.SignAccessCertificateRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -504,7 +504,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(org.amv.access.grpc.access.UpdateAccessCertificateRequest prototype) {
+  public static Builder newBuilder(org.amv.access.grpc.access.SignAccessCertificateRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -519,25 +519,25 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code amv_access_api.UpdateAccessCertificateRequest}
+   * Protobuf type {@code amv_access_api.SignAccessCertificateRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:amv_access_api.UpdateAccessCertificateRequest)
-      org.amv.access.grpc.access.UpdateAccessCertificateRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:amv_access_api.SignAccessCertificateRequest)
+      org.amv.access.grpc.access.SignAccessCertificateRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.amv.access.grpc.access.AccessProto.internal_static_amv_access_api_UpdateAccessCertificateRequest_descriptor;
+      return org.amv.access.grpc.access.AccessProto.internal_static_amv_access_api_SignAccessCertificateRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.amv.access.grpc.access.AccessProto.internal_static_amv_access_api_UpdateAccessCertificateRequest_fieldAccessorTable
+      return org.amv.access.grpc.access.AccessProto.internal_static_amv_access_api_SignAccessCertificateRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.amv.access.grpc.access.UpdateAccessCertificateRequest.class, org.amv.access.grpc.access.UpdateAccessCertificateRequest.Builder.class);
+              org.amv.access.grpc.access.SignAccessCertificateRequest.class, org.amv.access.grpc.access.SignAccessCertificateRequest.Builder.class);
     }
 
-    // Construct using org.amv.access.grpc.access.UpdateAccessCertificateRequest.newBuilder()
+    // Construct using org.amv.access.grpc.access.SignAccessCertificateRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -575,23 +575,23 @@ private static final long serialVersionUID = 0L;
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return org.amv.access.grpc.access.AccessProto.internal_static_amv_access_api_UpdateAccessCertificateRequest_descriptor;
+      return org.amv.access.grpc.access.AccessProto.internal_static_amv_access_api_SignAccessCertificateRequest_descriptor;
     }
 
-    public org.amv.access.grpc.access.UpdateAccessCertificateRequest getDefaultInstanceForType() {
-      return org.amv.access.grpc.access.UpdateAccessCertificateRequest.getDefaultInstance();
+    public org.amv.access.grpc.access.SignAccessCertificateRequest getDefaultInstanceForType() {
+      return org.amv.access.grpc.access.SignAccessCertificateRequest.getDefaultInstance();
     }
 
-    public org.amv.access.grpc.access.UpdateAccessCertificateRequest build() {
-      org.amv.access.grpc.access.UpdateAccessCertificateRequest result = buildPartial();
+    public org.amv.access.grpc.access.SignAccessCertificateRequest build() {
+      org.amv.access.grpc.access.SignAccessCertificateRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public org.amv.access.grpc.access.UpdateAccessCertificateRequest buildPartial() {
-      org.amv.access.grpc.access.UpdateAccessCertificateRequest result = new org.amv.access.grpc.access.UpdateAccessCertificateRequest(this);
+    public org.amv.access.grpc.access.SignAccessCertificateRequest buildPartial() {
+      org.amv.access.grpc.access.SignAccessCertificateRequest result = new org.amv.access.grpc.access.SignAccessCertificateRequest(this);
       if (issuerAuthBuilder_ == null) {
         result.issuerAuth_ = issuerAuth_;
       } else {
@@ -633,16 +633,16 @@ private static final long serialVersionUID = 0L;
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof org.amv.access.grpc.access.UpdateAccessCertificateRequest) {
-        return mergeFrom((org.amv.access.grpc.access.UpdateAccessCertificateRequest)other);
+      if (other instanceof org.amv.access.grpc.access.SignAccessCertificateRequest) {
+        return mergeFrom((org.amv.access.grpc.access.SignAccessCertificateRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(org.amv.access.grpc.access.UpdateAccessCertificateRequest other) {
-      if (other == org.amv.access.grpc.access.UpdateAccessCertificateRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(org.amv.access.grpc.access.SignAccessCertificateRequest other) {
+      if (other == org.amv.access.grpc.access.SignAccessCertificateRequest.getDefaultInstance()) return this;
       if (other.hasIssuerAuth()) {
         mergeIssuerAuth(other.getIssuerAuth());
       }
@@ -679,11 +679,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      org.amv.access.grpc.access.UpdateAccessCertificateRequest parsedMessage = null;
+      org.amv.access.grpc.access.SignAccessCertificateRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (org.amv.access.grpc.access.UpdateAccessCertificateRequest) e.getUnfinishedMessage();
+        parsedMessage = (org.amv.access.grpc.access.SignAccessCertificateRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -1165,39 +1165,39 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:amv_access_api.UpdateAccessCertificateRequest)
+    // @@protoc_insertion_point(builder_scope:amv_access_api.SignAccessCertificateRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:amv_access_api.UpdateAccessCertificateRequest)
-  private static final org.amv.access.grpc.access.UpdateAccessCertificateRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:amv_access_api.SignAccessCertificateRequest)
+  private static final org.amv.access.grpc.access.SignAccessCertificateRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new org.amv.access.grpc.access.UpdateAccessCertificateRequest();
+    DEFAULT_INSTANCE = new org.amv.access.grpc.access.SignAccessCertificateRequest();
   }
 
-  public static org.amv.access.grpc.access.UpdateAccessCertificateRequest getDefaultInstance() {
+  public static org.amv.access.grpc.access.SignAccessCertificateRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<UpdateAccessCertificateRequest>
-      PARSER = new com.google.protobuf.AbstractParser<UpdateAccessCertificateRequest>() {
-    public UpdateAccessCertificateRequest parsePartialFrom(
+  private static final com.google.protobuf.Parser<SignAccessCertificateRequest>
+      PARSER = new com.google.protobuf.AbstractParser<SignAccessCertificateRequest>() {
+    public SignAccessCertificateRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateAccessCertificateRequest(input, extensionRegistry);
+      return new SignAccessCertificateRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<UpdateAccessCertificateRequest> parser() {
+  public static com.google.protobuf.Parser<SignAccessCertificateRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<UpdateAccessCertificateRequest> getParserForType() {
+  public com.google.protobuf.Parser<SignAccessCertificateRequest> getParserForType() {
     return PARSER;
   }
 
-  public org.amv.access.grpc.access.UpdateAccessCertificateRequest getDefaultInstanceForType() {
+  public org.amv.access.grpc.access.SignAccessCertificateRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

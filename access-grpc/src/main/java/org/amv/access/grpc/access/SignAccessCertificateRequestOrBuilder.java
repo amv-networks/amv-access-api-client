@@ -3,8 +3,8 @@
 
 package org.amv.access.grpc.access;
 
-public interface UpdateAccessCertificateRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:amv_access_api.UpdateAccessCertificateRequest)
+public interface SignAccessCertificateRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:amv_access_api.SignAccessCertificateRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

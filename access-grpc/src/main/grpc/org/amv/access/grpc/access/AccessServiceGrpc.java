@@ -28,6 +28,43 @@ public final class AccessServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getGetAccessCertificatesMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.amv.access.grpc.access.GetAccessCertificatesRequest,
+      org.amv.access.grpc.access.GetAccessCertificatesResponse> METHOD_GET_ACCESS_CERTIFICATES = getGetAccessCertificatesMethodHelper();
+
+  private static volatile io.grpc.MethodDescriptor<org.amv.access.grpc.access.GetAccessCertificatesRequest,
+      org.amv.access.grpc.access.GetAccessCertificatesResponse> getGetAccessCertificatesMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<org.amv.access.grpc.access.GetAccessCertificatesRequest,
+      org.amv.access.grpc.access.GetAccessCertificatesResponse> getGetAccessCertificatesMethod() {
+    return getGetAccessCertificatesMethodHelper();
+  }
+
+  private static io.grpc.MethodDescriptor<org.amv.access.grpc.access.GetAccessCertificatesRequest,
+      org.amv.access.grpc.access.GetAccessCertificatesResponse> getGetAccessCertificatesMethodHelper() {
+    io.grpc.MethodDescriptor<org.amv.access.grpc.access.GetAccessCertificatesRequest, org.amv.access.grpc.access.GetAccessCertificatesResponse> getGetAccessCertificatesMethod;
+    if ((getGetAccessCertificatesMethod = AccessServiceGrpc.getGetAccessCertificatesMethod) == null) {
+      synchronized (AccessServiceGrpc.class) {
+        if ((getGetAccessCertificatesMethod = AccessServiceGrpc.getGetAccessCertificatesMethod) == null) {
+          AccessServiceGrpc.getGetAccessCertificatesMethod = getGetAccessCertificatesMethod = 
+              io.grpc.MethodDescriptor.<org.amv.access.grpc.access.GetAccessCertificatesRequest, org.amv.access.grpc.access.GetAccessCertificatesResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "amv_access_api.AccessService", "getAccessCertificates"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.amv.access.grpc.access.GetAccessCertificatesRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.amv.access.grpc.access.GetAccessCertificatesResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new AccessServiceMethodDescriptorSupplier("getAccessCertificates"))
+                  .build();
+          }
+        }
+     }
+     return getGetAccessCertificatesMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   @java.lang.Deprecated // Use {@link #getCreateAccessCertificateMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.amv.access.grpc.access.CreateAccessCertificateRequest,
       org.amv.access.grpc.access.CreateAccessCertificateResponse> METHOD_CREATE_ACCESS_CERTIFICATE = getCreateAccessCertificateMethodHelper();
@@ -66,34 +103,34 @@ public final class AccessServiceGrpc {
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   @java.lang.Deprecated // Use {@link #getSignAccessCertificateMethod()} instead. 
-  public static final io.grpc.MethodDescriptor<org.amv.access.grpc.access.UpdateAccessCertificateRequest,
-      org.amv.access.grpc.access.CreateAccessCertificateResponse> METHOD_SIGN_ACCESS_CERTIFICATE = getSignAccessCertificateMethodHelper();
+  public static final io.grpc.MethodDescriptor<org.amv.access.grpc.access.SignAccessCertificateRequest,
+      org.amv.access.grpc.access.SignAccessCertificateResponse> METHOD_SIGN_ACCESS_CERTIFICATE = getSignAccessCertificateMethodHelper();
 
-  private static volatile io.grpc.MethodDescriptor<org.amv.access.grpc.access.UpdateAccessCertificateRequest,
-      org.amv.access.grpc.access.CreateAccessCertificateResponse> getSignAccessCertificateMethod;
+  private static volatile io.grpc.MethodDescriptor<org.amv.access.grpc.access.SignAccessCertificateRequest,
+      org.amv.access.grpc.access.SignAccessCertificateResponse> getSignAccessCertificateMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<org.amv.access.grpc.access.UpdateAccessCertificateRequest,
-      org.amv.access.grpc.access.CreateAccessCertificateResponse> getSignAccessCertificateMethod() {
+  public static io.grpc.MethodDescriptor<org.amv.access.grpc.access.SignAccessCertificateRequest,
+      org.amv.access.grpc.access.SignAccessCertificateResponse> getSignAccessCertificateMethod() {
     return getSignAccessCertificateMethodHelper();
   }
 
-  private static io.grpc.MethodDescriptor<org.amv.access.grpc.access.UpdateAccessCertificateRequest,
-      org.amv.access.grpc.access.CreateAccessCertificateResponse> getSignAccessCertificateMethodHelper() {
-    io.grpc.MethodDescriptor<org.amv.access.grpc.access.UpdateAccessCertificateRequest, org.amv.access.grpc.access.CreateAccessCertificateResponse> getSignAccessCertificateMethod;
+  private static io.grpc.MethodDescriptor<org.amv.access.grpc.access.SignAccessCertificateRequest,
+      org.amv.access.grpc.access.SignAccessCertificateResponse> getSignAccessCertificateMethodHelper() {
+    io.grpc.MethodDescriptor<org.amv.access.grpc.access.SignAccessCertificateRequest, org.amv.access.grpc.access.SignAccessCertificateResponse> getSignAccessCertificateMethod;
     if ((getSignAccessCertificateMethod = AccessServiceGrpc.getSignAccessCertificateMethod) == null) {
       synchronized (AccessServiceGrpc.class) {
         if ((getSignAccessCertificateMethod = AccessServiceGrpc.getSignAccessCertificateMethod) == null) {
           AccessServiceGrpc.getSignAccessCertificateMethod = getSignAccessCertificateMethod = 
-              io.grpc.MethodDescriptor.<org.amv.access.grpc.access.UpdateAccessCertificateRequest, org.amv.access.grpc.access.CreateAccessCertificateResponse>newBuilder()
+              io.grpc.MethodDescriptor.<org.amv.access.grpc.access.SignAccessCertificateRequest, org.amv.access.grpc.access.SignAccessCertificateResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "amv_access_api.AccessService", "signAccessCertificate"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.amv.access.grpc.access.UpdateAccessCertificateRequest.getDefaultInstance()))
+                  org.amv.access.grpc.access.SignAccessCertificateRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.amv.access.grpc.access.CreateAccessCertificateResponse.getDefaultInstance()))
+                  org.amv.access.grpc.access.SignAccessCertificateResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new AccessServiceMethodDescriptorSupplier("signAccessCertificate"))
                   .build();
           }
@@ -131,6 +168,13 @@ public final class AccessServiceGrpc {
 
     /**
      */
+    public void getAccessCertificates(org.amv.access.grpc.access.GetAccessCertificatesRequest request,
+        io.grpc.stub.StreamObserver<org.amv.access.grpc.access.GetAccessCertificatesResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetAccessCertificatesMethodHelper(), responseObserver);
+    }
+
+    /**
+     */
     public void createAccessCertificate(org.amv.access.grpc.access.CreateAccessCertificateRequest request,
         io.grpc.stub.StreamObserver<org.amv.access.grpc.access.CreateAccessCertificateResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getCreateAccessCertificateMethodHelper(), responseObserver);
@@ -138,13 +182,20 @@ public final class AccessServiceGrpc {
 
     /**
      */
-    public void signAccessCertificate(org.amv.access.grpc.access.UpdateAccessCertificateRequest request,
-        io.grpc.stub.StreamObserver<org.amv.access.grpc.access.CreateAccessCertificateResponse> responseObserver) {
+    public void signAccessCertificate(org.amv.access.grpc.access.SignAccessCertificateRequest request,
+        io.grpc.stub.StreamObserver<org.amv.access.grpc.access.SignAccessCertificateResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getSignAccessCertificateMethodHelper(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
+          .addMethod(
+            getGetAccessCertificatesMethodHelper(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.amv.access.grpc.access.GetAccessCertificatesRequest,
+                org.amv.access.grpc.access.GetAccessCertificatesResponse>(
+                  this, METHODID_GET_ACCESS_CERTIFICATES)))
           .addMethod(
             getCreateAccessCertificateMethodHelper(),
             asyncUnaryCall(
@@ -156,8 +207,8 @@ public final class AccessServiceGrpc {
             getSignAccessCertificateMethodHelper(),
             asyncUnaryCall(
               new MethodHandlers<
-                org.amv.access.grpc.access.UpdateAccessCertificateRequest,
-                org.amv.access.grpc.access.CreateAccessCertificateResponse>(
+                org.amv.access.grpc.access.SignAccessCertificateRequest,
+                org.amv.access.grpc.access.SignAccessCertificateResponse>(
                   this, METHODID_SIGN_ACCESS_CERTIFICATE)))
           .build();
     }
@@ -183,6 +234,14 @@ public final class AccessServiceGrpc {
 
     /**
      */
+    public void getAccessCertificates(org.amv.access.grpc.access.GetAccessCertificatesRequest request,
+        io.grpc.stub.StreamObserver<org.amv.access.grpc.access.GetAccessCertificatesResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetAccessCertificatesMethodHelper(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void createAccessCertificate(org.amv.access.grpc.access.CreateAccessCertificateRequest request,
         io.grpc.stub.StreamObserver<org.amv.access.grpc.access.CreateAccessCertificateResponse> responseObserver) {
       asyncUnaryCall(
@@ -191,8 +250,8 @@ public final class AccessServiceGrpc {
 
     /**
      */
-    public void signAccessCertificate(org.amv.access.grpc.access.UpdateAccessCertificateRequest request,
-        io.grpc.stub.StreamObserver<org.amv.access.grpc.access.CreateAccessCertificateResponse> responseObserver) {
+    public void signAccessCertificate(org.amv.access.grpc.access.SignAccessCertificateRequest request,
+        io.grpc.stub.StreamObserver<org.amv.access.grpc.access.SignAccessCertificateResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getSignAccessCertificateMethodHelper(), getCallOptions()), request, responseObserver);
     }
@@ -218,6 +277,13 @@ public final class AccessServiceGrpc {
 
     /**
      */
+    public org.amv.access.grpc.access.GetAccessCertificatesResponse getAccessCertificates(org.amv.access.grpc.access.GetAccessCertificatesRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getGetAccessCertificatesMethodHelper(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public org.amv.access.grpc.access.CreateAccessCertificateResponse createAccessCertificate(org.amv.access.grpc.access.CreateAccessCertificateRequest request) {
       return blockingUnaryCall(
           getChannel(), getCreateAccessCertificateMethodHelper(), getCallOptions(), request);
@@ -225,7 +291,7 @@ public final class AccessServiceGrpc {
 
     /**
      */
-    public org.amv.access.grpc.access.CreateAccessCertificateResponse signAccessCertificate(org.amv.access.grpc.access.UpdateAccessCertificateRequest request) {
+    public org.amv.access.grpc.access.SignAccessCertificateResponse signAccessCertificate(org.amv.access.grpc.access.SignAccessCertificateRequest request) {
       return blockingUnaryCall(
           getChannel(), getSignAccessCertificateMethodHelper(), getCallOptions(), request);
     }
@@ -251,6 +317,14 @@ public final class AccessServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<org.amv.access.grpc.access.GetAccessCertificatesResponse> getAccessCertificates(
+        org.amv.access.grpc.access.GetAccessCertificatesRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetAccessCertificatesMethodHelper(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<org.amv.access.grpc.access.CreateAccessCertificateResponse> createAccessCertificate(
         org.amv.access.grpc.access.CreateAccessCertificateRequest request) {
       return futureUnaryCall(
@@ -259,15 +333,16 @@ public final class AccessServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.amv.access.grpc.access.CreateAccessCertificateResponse> signAccessCertificate(
-        org.amv.access.grpc.access.UpdateAccessCertificateRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<org.amv.access.grpc.access.SignAccessCertificateResponse> signAccessCertificate(
+        org.amv.access.grpc.access.SignAccessCertificateRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getSignAccessCertificateMethodHelper(), getCallOptions()), request);
     }
   }
 
-  private static final int METHODID_CREATE_ACCESS_CERTIFICATE = 0;
-  private static final int METHODID_SIGN_ACCESS_CERTIFICATE = 1;
+  private static final int METHODID_GET_ACCESS_CERTIFICATES = 0;
+  private static final int METHODID_CREATE_ACCESS_CERTIFICATE = 1;
+  private static final int METHODID_SIGN_ACCESS_CERTIFICATE = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -286,13 +361,17 @@ public final class AccessServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_GET_ACCESS_CERTIFICATES:
+          serviceImpl.getAccessCertificates((org.amv.access.grpc.access.GetAccessCertificatesRequest) request,
+              (io.grpc.stub.StreamObserver<org.amv.access.grpc.access.GetAccessCertificatesResponse>) responseObserver);
+          break;
         case METHODID_CREATE_ACCESS_CERTIFICATE:
           serviceImpl.createAccessCertificate((org.amv.access.grpc.access.CreateAccessCertificateRequest) request,
               (io.grpc.stub.StreamObserver<org.amv.access.grpc.access.CreateAccessCertificateResponse>) responseObserver);
           break;
         case METHODID_SIGN_ACCESS_CERTIFICATE:
-          serviceImpl.signAccessCertificate((org.amv.access.grpc.access.UpdateAccessCertificateRequest) request,
-              (io.grpc.stub.StreamObserver<org.amv.access.grpc.access.CreateAccessCertificateResponse>) responseObserver);
+          serviceImpl.signAccessCertificate((org.amv.access.grpc.access.SignAccessCertificateRequest) request,
+              (io.grpc.stub.StreamObserver<org.amv.access.grpc.access.SignAccessCertificateResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -355,6 +434,7 @@ public final class AccessServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new AccessServiceFileDescriptorSupplier())
+              .addMethod(getGetAccessCertificatesMethodHelper())
               .addMethod(getCreateAccessCertificateMethodHelper())
               .addMethod(getSignAccessCertificateMethodHelper())
               .build();
