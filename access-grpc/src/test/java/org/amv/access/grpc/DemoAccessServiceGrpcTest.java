@@ -4,7 +4,6 @@ import io.grpc.ManagedChannel;
 import io.grpc.Server;
 import io.grpc.inprocess.InProcessChannelBuilder;
 import io.grpc.inprocess.InProcessServerBuilder;
-import io.grpc.stub.StreamObserver;
 import org.amv.access.grpc.access.*;
 import org.amv.access.grpc.auth.IssuerAuth;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -18,14 +17,14 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
-public class AccessServiceGrpcDemo {
+public class DemoAccessServiceGrpcTest {
 
     private ManagedChannel channel;
     private Server server;
 
     @Before
     public void setUp() throws IOException {
-        AccessServiceDemo accessServiceGrpcDemo = new AccessServiceDemo();
+        DemoAccessService accessServiceGrpcDemo = new DemoAccessService();
 
         String uniqueName = InProcessServerBuilder.generateName();
 
@@ -78,50 +77,5 @@ public class AccessServiceGrpcDemo {
 
         assertThat(accessCertificate, is(notNullValue()));
         assertThat(accessCertificate.getId(), is(signRequestResponse.getId()));
-    }
-
-    public class AccessServiceDemo extends AccessServiceGrpc.AccessServiceImplBase {
-
-        @Override
-        public void getAccessCertificates(GetAccessCertificatesRequest request,
-                                          StreamObserver<GetAccessCertificatesResponse> responseObserver) {
-
-            responseObserver.onNext(GetAccessCertificatesResponse.newBuilder()
-                    .addAccessCertificates(AccessCertificate.newBuilder()
-                            .setId(RandomStringUtils.random(10))
-                            .setName(RandomStringUtils.random(10))
-                            .setDeviceAccessCertificate(RandomStringUtils.random(10))
-                            .setVehicleAccessCertificate(RandomStringUtils.random(10))
-                            .build())
-                    .build());
-            responseObserver.onCompleted();
-        }
-
-        @Override
-        public void createAccessCertificate(CreateAccessCertificateRequest request,
-                                            StreamObserver<CreateAccessCertificateResponse> responseObserver) {
-            responseObserver.onNext(CreateAccessCertificateResponse.newBuilder()
-                    .setAccessCertificateSigningRequest(AccessCertificateSigningRequest.newBuilder()
-                            .setId(RandomStringUtils.random(10))
-                            .setDeviceAccessCertificate(RandomStringUtils.random(10))
-                            .setVehicleAccessCertificate(RandomStringUtils.random(10))
-                            .build())
-                    .build());
-            responseObserver.onCompleted();
-        }
-
-        @Override
-        public void signAccessCertificate(SignAccessCertificateRequest request,
-                                          StreamObserver<SignAccessCertificateResponse> responseObserver) {
-            responseObserver.onNext(SignAccessCertificateResponse.newBuilder()
-                    .setAccessCertificate(AccessCertificate.newBuilder()
-                            .setId(request.getAccessCertificateId())
-                            .setName(RandomStringUtils.random(10))
-                            .setDeviceAccessCertificate(RandomStringUtils.random(10))
-                            .setVehicleAccessCertificate(RandomStringUtils.random(10))
-                            .build())
-                    .build());
-            responseObserver.onCompleted();
-        }
     }
 }

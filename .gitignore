@@ -11,6 +11,7 @@ app-management.port
 *.db-shm
 *.db-wal
 application-local-*.yml
+node_modules/
 
 ### Intellij ###
 .idea/

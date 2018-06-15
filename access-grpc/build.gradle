@@ -29,14 +29,14 @@ protobuf {
         }
     }
     generateProtoTasks {
+        all()*.plugins {
+            grpc {}
+        }
         all()*.builtins {
             js {
                 option "import_style=commonjs"
                 option "binary"
             }
-        }
-        all()*.plugins {
-            grpc {}
         }
     }
 }
@@ -49,8 +49,6 @@ dependencies {
     compile "io.grpc:grpc-stub:${grpcVersion}"
     compileOnly "javax.annotation:javax.annotation-api:1.2"
 
-    // Used for TLS in HelloWorldServerTls
-    //compile "io.netty:netty-tcnative-boringssl-static:${nettyTcNativeVersion}"
-
     testCompile "io.grpc:grpc-testing:${grpcVersion}"
+    testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.21'
 }

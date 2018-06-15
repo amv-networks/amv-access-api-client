@@ -1,0 +1,11 @@
+{
+  "name": "access-grpc-example",
+  "version": "0.0.1",
+  "dependencies": {
+    "async": "2.6.1",
+    "google-protobuf": "3.5.0",
+    "grpc": "1.12.3",
+    "lodash": "4.17.10",
+    "minimist": "1.2.0"
+  }
+}

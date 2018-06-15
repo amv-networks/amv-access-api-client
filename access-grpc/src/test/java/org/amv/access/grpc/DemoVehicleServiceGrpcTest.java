@@ -4,7 +4,6 @@ import io.grpc.ManagedChannel;
 import io.grpc.Server;
 import io.grpc.inprocess.InProcessChannelBuilder;
 import io.grpc.inprocess.InProcessServerBuilder;
-import io.grpc.stub.StreamObserver;
 import org.amv.access.grpc.vehicle.CreateVehicleRequest;
 import org.amv.access.grpc.vehicle.CreateVehicleResponse;
 import org.amv.access.grpc.vehicle.VehicleServiceGrpc;
@@ -19,14 +18,14 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
-public class VehicleServiceGrpcDemo {
+public class DemoVehicleServiceGrpcTest {
 
     private ManagedChannel channel;
     private Server server;
 
     @Before
     public void setUp() throws IOException {
-        VehicleServiceDemo vehicleServiceDemo = new VehicleServiceDemo();
+        DemoVehicleService vehicleServiceDemo = new DemoVehicleService();
 
         String uniqueName = InProcessServerBuilder.generateName();
 
@@ -60,17 +59,4 @@ public class VehicleServiceGrpcDemo {
         assertThat(vehicle.getVehicleSerialNumber(), is(notNullValue()));
     }
 
-    public class VehicleServiceDemo extends VehicleServiceGrpc.VehicleServiceImplBase {
-
-        @Override
-        public void createVehicle(CreateVehicleRequest request,
-                                  StreamObserver<CreateVehicleResponse> responseObserver) {
-            responseObserver.onNext(CreateVehicleResponse.newBuilder()
-                    .setName(request.getName())
-                    .setDescription(request.getDescription())
-                    .setVehicleSerialNumber(RandomStringUtils.random(10))
-                    .build());
-            responseObserver.onCompleted();
-        }
-    }
 }
