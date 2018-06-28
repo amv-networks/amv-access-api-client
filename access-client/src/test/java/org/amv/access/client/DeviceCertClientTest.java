@@ -3,6 +3,7 @@ package org.amv.access.client;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.common.base.Charsets;
 import com.netflix.hystrix.HystrixCommand;
+import feign.FeignException;
 import feign.Response;
 import feign.Target;
 import feign.mock.HttpMethod;
@@ -121,9 +122,12 @@ public class DeviceCertClientTest {
             assertThat(e.getCause(), is(notNullValue()));
 
             Throwable cause = e.getCause();
-            assertThat(cause, is(instanceOf(AccessApiException.class)));
+            assertThat(cause, is(instanceOf(FeignException.class)));
+            FeignException feignException = (FeignException) cause;
 
-            AccessApiException accessApiException = (AccessApiException) cause;
+            assertThat(feignException.getCause(), is(instanceOf(AccessApiException.class)));
+            AccessApiException accessApiException = (AccessApiException) feignException.getCause();
+
             ErrorResponseDto error = accessApiException.getError();
             assertThat(error, is(errorDto));
             assertThat(error.getErrors(), hasSize(errorDto.getErrors().size()));

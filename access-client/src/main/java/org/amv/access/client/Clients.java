@@ -3,6 +3,7 @@ package org.amv.access.client;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.RuntimeJsonMappingException;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -14,14 +15,17 @@ import feign.codec.Decoder;
 import feign.codec.ErrorDecoder;
 import feign.hystrix.HystrixFeign;
 import feign.hystrix.SetterFactory;
-import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
 import feign.okhttp.OkHttpClient;
 import feign.slf4j.Slf4jLogger;
 import org.amv.access.client.model.ErrorResponseDto;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.Reader;
 import java.lang.reflect.Method;
+import java.lang.reflect.Type;
 
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.netflix.hystrix.HystrixCommandProperties.ExecutionIsolationStrategy.THREAD;
@@ -147,11 +151,12 @@ public final class Clients {
             ErrorResponseDto errorResponseDtoOrNull = parseErrorInfoOrNull(response);
 
             FeignException feignException = errorStatus(methodKey, response);
-            if (errorResponseDtoOrNull == null) {
-                return feignException;
+            if (errorResponseDtoOrNull != null) {
+                AccessApiException cause = new AccessApiException(errorResponseDtoOrNull, null);
+                feignException.initCause(cause);
             }
 
-            return new AccessApiException(errorResponseDtoOrNull, feignException);
+            return feignException;
         }
 
         private ErrorResponseDto parseErrorInfoOrNull(Response response) {
@@ -162,4 +167,43 @@ public final class Clients {
             }
         }
     }
+
+    /**
+     * Own implementation of {@link feign.jackson.JacksonDecoder} as Feign does not deserialize responses with status 404.
+     * See https://github.com/OpenFeign/feign/commit/24885fe9620ed620af43f4d2d6ffcfc82980e097
+     * for more information.
+     */
+    static class JacksonDecoder implements Decoder {
+
+        private final ObjectMapper mapper;
+
+        JacksonDecoder(ObjectMapper mapper) {
+            checkArgument(mapper != null, "`mapper` must not be null");
+            this.mapper = mapper;
+        }
+
+        @Override
+        public Object decode(Response response, Type type) throws IOException {
+            if (response.body() == null) return null;
+            Reader reader = response.body().asReader();
+            if (!reader.markSupported()) {
+                reader = new BufferedReader(reader, 1);
+            }
+            try {
+                // Read the first byte to see if we have any data
+                reader.mark(1);
+                if (reader.read() == -1) {
+                    return null; // Eagerly returning null avoids "No content to map due to end-of-input"
+                }
+                reader.reset();
+                return mapper.readValue(reader, mapper.constructType(type));
+            } catch (RuntimeJsonMappingException e) {
+                if (e.getCause() != null && e.getCause() instanceof IOException) {
+                    throw IOException.class.cast(e.getCause());
+                }
+                throw e;
+            }
+        }
+    }
+
 }
