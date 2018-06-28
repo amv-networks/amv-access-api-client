@@ -144,9 +144,9 @@ public final class Clients {
 
         @Override
         public Exception decode(String methodKey, Response response) {
-            FeignException feignException = errorStatus(methodKey, response);
-
             ErrorResponseDto errorResponseDtoOrNull = parseErrorInfoOrNull(response);
+
+            FeignException feignException = errorStatus(methodKey, response);
             if (errorResponseDtoOrNull == null) {
                 return feignException;
             }
