@@ -8,22 +8,22 @@ amv-access-api-client contains rest clients to interact with the AMV Access API.
 amv-access-api-client requires Java version 1.8 or greater.
 
 
-## Installation
+## installation
 Download the latest version from [Bintray](https://bintray.com/amv-networks/amv-access-api-client/access-client/_latestVersion).
 
 ```groovy
 compile "org.amv.access:access-client:${amvAccessClientVersion}"
 ```
 
-## Basic Usage
+## basic usage
 
-### Device Certificate Client
+### device certificate client
 ```java
 String baseUrl = "https://www.example.com";
 DeviceCertClient deviceCertClient = Clients.simpleDeviceCertClient(baseUrl);
 ```
 
-### Create Device Certificates
+### create device certificates
 ```java
 String appId = "...";
 String apiKey = "...";
@@ -38,13 +38,49 @@ CreateDeviceCertificateResponseDto response = deviceCertClient
         .execute();
 ```
 
-## Build
+## build
 ```bash
-$ ./gradlew releaseCheck build publishToMavenLocal -Prelease.stage=SNAPSHOT -Prelease.scope=patch
+$ ./gradlew releaseCheck clean build
 ```
 
-## Contributing
+## development
+
+### create a release
+```bash
+./gradlew final -Prelease.scope=patch
+```
+
+### release to bintray
+```bash
+./gradlew clean build bintrayUpload
+    -Prelease.useLastTag=true
+    -PreleaseToBintray
+    -PbintrayUser=${username}
+    -PbintrayApiKey=${apiKey}
+```
+or (implicitly creating a new version)
+```bash
+./gradlew clean build bintrayUpload
+    -Prelease.stage=final
+    -Prelease.scope=patch
+    -PreleaseToBintray
+    -PbintrayUser=${username}
+    -PbintrayApiKey=${apiKey}
+```
+
+### release to local repository
+```bash
+./gradlew clean build publishToMavenLocal
+```
+
+### ide
+this library uses lombok. enable annotation processing in your ide.
+```bash
+./gradlew installLombok
+```
+
+## contributing
 For information on how to contribute, please refer to our [contribution guide](https://github.com/amvnetworks/github-commons/blob/master/CONTRIBUTING.md).
 
-## License
+## license
 The project is licensed under the Apache License. See [LICENSE](LICENSE) for details.
