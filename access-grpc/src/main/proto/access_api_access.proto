@@ -21,6 +21,7 @@ message AccessCertificate {
   string device_access_certificate = 2;
   string vehicle_access_certificate = 3;
   string name = 4;
+  int32 version = 5;
 }
 
 message GetAccessCertificatesRequest {
@@ -38,6 +39,7 @@ message CreateAccessCertificateRequest {
   string vehicle_serial_number = 4;
   int64 validity_start = 5;
   int64 validity_end = 6;
+  int32 version = 7;
 }
 
 message CreateAccessCertificateResponse {

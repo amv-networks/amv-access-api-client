@@ -46,4 +46,9 @@ public interface AccessCertificateOrBuilder extends
    */
   com.google.protobuf.ByteString
       getNameBytes();
+
+  /**
+   * <code>int32 version = 5;</code>
+   */
+  int getVersion();
 }

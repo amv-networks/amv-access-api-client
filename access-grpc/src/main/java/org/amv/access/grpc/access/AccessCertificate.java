@@ -20,6 +20,7 @@ private static final long serialVersionUID = 0L;
     deviceAccessCertificate_ = "";
     vehicleAccessCertificate_ = "";
     name_ = "";
+    version_ = 0;
   }
 
   @java.lang.Override
@@ -75,6 +76,11 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             name_ = s;
+            break;
+          }
+          case 40: {
+
+            version_ = input.readInt32();
             break;
           }
         }
@@ -237,6 +243,15 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int VERSION_FIELD_NUMBER = 5;
+  private int version_;
+  /**
+   * <code>int32 version = 5;</code>
+   */
+  public int getVersion() {
+    return version_;
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -261,6 +276,9 @@ private static final long serialVersionUID = 0L;
     if (!getNameBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, name_);
     }
+    if (version_ != 0) {
+      output.writeInt32(5, version_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -280,6 +298,10 @@ private static final long serialVersionUID = 0L;
     }
     if (!getNameBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, name_);
+    }
+    if (version_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(5, version_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -305,6 +327,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getVehicleAccessCertificate());
     result = result && getName()
         .equals(other.getName());
+    result = result && (getVersion()
+        == other.getVersion());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -324,6 +348,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getVehicleAccessCertificate().hashCode();
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
+    hash = (37 * hash) + VERSION_FIELD_NUMBER;
+    hash = (53 * hash) + getVersion();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -461,6 +487,8 @@ private static final long serialVersionUID = 0L;
 
       name_ = "";
 
+      version_ = 0;
+
       return this;
     }
 
@@ -487,6 +515,7 @@ private static final long serialVersionUID = 0L;
       result.deviceAccessCertificate_ = deviceAccessCertificate_;
       result.vehicleAccessCertificate_ = vehicleAccessCertificate_;
       result.name_ = name_;
+      result.version_ = version_;
       onBuilt();
       return result;
     }
@@ -543,6 +572,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
         onChanged();
+      }
+      if (other.getVersion() != 0) {
+        setVersion(other.getVersion());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -843,6 +875,32 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       name_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int version_ ;
+    /**
+     * <code>int32 version = 5;</code>
+     */
+    public int getVersion() {
+      return version_;
+    }
+    /**
+     * <code>int32 version = 5;</code>
+     */
+    public Builder setVersion(int value) {
+      
+      version_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 version = 5;</code>
+     */
+    public Builder clearVersion() {
+      
+      version_ = 0;
       onChanged();
       return this;
     }

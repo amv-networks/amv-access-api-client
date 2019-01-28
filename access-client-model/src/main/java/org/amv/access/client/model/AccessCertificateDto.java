@@ -22,6 +22,14 @@ public class AccessCertificateDto {
     )
     private String id;
 
+    @JsonProperty("version")
+    @ApiModelProperty(
+            value = "incremental version identifier of the certificate",
+            dataType = "integer",
+            required = true
+    )
+    private int version;
+
     @JsonProperty("device_access_certificate")
     @ApiModelProperty(
             value = "the full access certificate for the device in binary format",

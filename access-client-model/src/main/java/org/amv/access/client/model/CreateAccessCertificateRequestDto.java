@@ -15,6 +15,9 @@ import java.time.LocalDateTime;
 @ApiModel(description = "A resource representing the request for creating an access certificate.")
 public class CreateAccessCertificateRequestDto {
 
+    @JsonProperty(value = "version")
+    private int version;
+
     @JsonProperty(value = "app_id")
     private String appId;
 

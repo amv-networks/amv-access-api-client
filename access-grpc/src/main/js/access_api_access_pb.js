@@ -70,7 +70,8 @@ proto.amv_access_api.AccessCertificate.toObject = function(includeInstance, msg)
     id: jspb.Message.getFieldWithDefault(msg, 1, ""),
     deviceAccessCertificate: jspb.Message.getFieldWithDefault(msg, 2, ""),
     vehicleAccessCertificate: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    name: jspb.Message.getFieldWithDefault(msg, 4, "")
+    name: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    version: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -122,6 +123,10 @@ proto.amv_access_api.AccessCertificate.deserializeBinaryFromReader = function(ms
     case 4:
       var value = /** @type {string} */ (reader.readString());
       msg.setName(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setVersion(value);
       break;
     default:
       reader.skipField();
@@ -177,6 +182,13 @@ proto.amv_access_api.AccessCertificate.serializeBinaryToWriter = function(messag
   if (f.length > 0) {
     writer.writeString(
       4,
+      f
+    );
+  }
+  f = message.getVersion();
+  if (f !== 0) {
+    writer.writeInt32(
+      5,
       f
     );
   }
@@ -240,6 +252,21 @@ proto.amv_access_api.AccessCertificate.prototype.getName = function() {
 /** @param {string} value */
 proto.amv_access_api.AccessCertificate.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional int32 version = 5;
+ * @return {number}
+ */
+proto.amv_access_api.AccessCertificate.prototype.getVersion = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {number} value */
+proto.amv_access_api.AccessCertificate.prototype.setVersion = function(value) {
+  jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -622,7 +649,8 @@ proto.amv_access_api.CreateAccessCertificateRequest.toObject = function(includeI
     deviceSerialNumber: jspb.Message.getFieldWithDefault(msg, 3, ""),
     vehicleSerialNumber: jspb.Message.getFieldWithDefault(msg, 4, ""),
     validityStart: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    validityEnd: jspb.Message.getFieldWithDefault(msg, 6, 0)
+    validityEnd: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    version: jspb.Message.getFieldWithDefault(msg, 7, 0)
   };
 
   if (includeInstance) {
@@ -683,6 +711,10 @@ proto.amv_access_api.CreateAccessCertificateRequest.deserializeBinaryFromReader 
     case 6:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setValidityEnd(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setVersion(value);
       break;
     default:
       reader.skipField();
@@ -753,6 +785,13 @@ proto.amv_access_api.CreateAccessCertificateRequest.serializeBinaryToWriter = fu
   if (f !== 0) {
     writer.writeInt64(
       6,
+      f
+    );
+  }
+  f = message.getVersion();
+  if (f !== 0) {
+    writer.writeInt32(
+      7,
       f
     );
   }
@@ -861,6 +900,21 @@ proto.amv_access_api.CreateAccessCertificateRequest.prototype.getValidityEnd = f
 /** @param {number} value */
 proto.amv_access_api.CreateAccessCertificateRequest.prototype.setValidityEnd = function(value) {
   jspb.Message.setProto3IntField(this, 6, value);
+};
+
+
+/**
+ * optional int32 version = 7;
+ * @return {number}
+ */
+proto.amv_access_api.CreateAccessCertificateRequest.prototype.getVersion = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {number} value */
+proto.amv_access_api.CreateAccessCertificateRequest.prototype.setVersion = function(value) {
+  jspb.Message.setProto3IntField(this, 7, value);
 };
 
 

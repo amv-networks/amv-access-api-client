@@ -59,4 +59,9 @@ public interface CreateAccessCertificateRequestOrBuilder extends
    * <code>int64 validity_end = 6;</code>
    */
   long getValidityEnd();
+
+  /**
+   * <code>int32 version = 7;</code>
+   */
+  int getVersion();
 }

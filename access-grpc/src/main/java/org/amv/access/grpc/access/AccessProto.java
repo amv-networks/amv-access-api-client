@@ -64,47 +64,48 @@ public final class AccessProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\027access_api_access.proto\022\016amv_access_ap" +
-      "i\032\025access_api_auth.proto\"t\n\021AccessCertif" +
-      "icate\022\n\n\002id\030\001 \001(\t\022!\n\031device_access_certi" +
+      "i\032\025access_api_auth.proto\"\205\001\n\021AccessCerti" +
+      "ficate\022\n\n\002id\030\001 \001(\t\022!\n\031device_access_cert" +
+      "ificate\030\002 \001(\t\022\"\n\032vehicle_access_certific" +
+      "ate\030\003 \001(\t\022\014\n\004name\030\004 \001(\t\022\017\n\007version\030\005 \001(\005" +
+      "\"O\n\034GetAccessCertificatesRequest\022/\n\013devi" +
+      "ce_auth\030\001 \001(\0132\032.amv_access_api.DeviceAut" +
+      "h\"_\n\035GetAccessCertificatesResponse\022>\n\023ac" +
+      "cess_certificates\030\001 \003(\0132!.amv_access_api" +
+      ".AccessCertificate\"\335\001\n\036CreateAccessCerti" +
+      "ficateRequest\022/\n\013issuer_auth\030\001 \001(\0132\032.amv" +
+      "_access_api.IssuerAuth\022\016\n\006app_id\030\002 \001(\t\022\034" +
+      "\n\024device_serial_number\030\003 \001(\t\022\035\n\025vehicle_" +
+      "serial_number\030\004 \001(\t\022\026\n\016validity_start\030\005 " +
+      "\001(\003\022\024\n\014validity_end\030\006 \001(\003\022\017\n\007version\030\007 \001" +
+      "(\005\"~\n\037CreateAccessCertificateResponse\022[\n" +
+      "\"access_certificate_signing_request\030\001 \001(" +
+      "\0132/.amv_access_api.AccessCertificateSign" +
+      "ingRequest\"t\n\037AccessCertificateSigningRe" +
+      "quest\022\n\n\002id\030\001 \001(\t\022!\n\031device_access_certi" +
       "ficate\030\002 \001(\t\022\"\n\032vehicle_access_certifica" +
-      "te\030\003 \001(\t\022\014\n\004name\030\004 \001(\t\"O\n\034GetAccessCerti" +
-      "ficatesRequest\022/\n\013device_auth\030\001 \001(\0132\032.am" +
-      "v_access_api.DeviceAuth\"_\n\035GetAccessCert" +
-      "ificatesResponse\022>\n\023access_certificates\030" +
-      "\001 \003(\0132!.amv_access_api.AccessCertificate" +
-      "\"\314\001\n\036CreateAccessCertificateRequest\022/\n\013i" +
-      "ssuer_auth\030\001 \001(\0132\032.amv_access_api.Issuer" +
-      "Auth\022\016\n\006app_id\030\002 \001(\t\022\034\n\024device_serial_nu" +
-      "mber\030\003 \001(\t\022\035\n\025vehicle_serial_number\030\004 \001(" +
-      "\t\022\026\n\016validity_start\030\005 \001(\003\022\024\n\014validity_en" +
-      "d\030\006 \001(\003\"~\n\037CreateAccessCertificateRespon" +
-      "se\022[\n\"access_certificate_signing_request" +
-      "\030\001 \001(\0132/.amv_access_api.AccessCertificat" +
-      "eSigningRequest\"t\n\037AccessCertificateSign" +
-      "ingRequest\022\n\n\002id\030\001 \001(\t\022!\n\031device_access_" +
-      "certificate\030\002 \001(\t\022\"\n\032vehicle_access_cert" +
-      "ificate\030\003 \001(\t\"\272\002\n\034SignAccessCertificateR" +
-      "equest\022/\n\013issuer_auth\030\001 \001(\0132\032.amv_access" +
-      "_api.IssuerAuth\022\035\n\025access_certificate_id" +
-      "\030\002 \001(\t\0223\n+vehicle_access_certificate_sig" +
-      "nature_base64\030\003 \001(\t\0220\n(signed_vehicle_ac" +
-      "cess_certificate_base64\030\004 \001(\t\0222\n*device_" +
-      "access_certificate_signature_base64\030\005 \001(" +
-      "\t\022/\n\'signed_device_access_certificate_ba" +
-      "se64\030\006 \001(\t\"^\n\035SignAccessCertificateRespo" +
-      "nse\022=\n\022access_certificate\030\001 \001(\0132!.amv_ac" +
-      "cess_api.AccessCertificate2\375\002\n\rAccessSer" +
-      "vice\022v\n\025getAccessCertificates\022,.amv_acce" +
-      "ss_api.GetAccessCertificatesRequest\032-.am" +
-      "v_access_api.GetAccessCertificatesRespon" +
-      "se\"\000\022|\n\027createAccessCertificate\022..amv_ac" +
-      "cess_api.CreateAccessCertificateRequest\032" +
-      "/.amv_access_api.CreateAccessCertificate" +
-      "Response\"\000\022v\n\025signAccessCertificate\022,.am" +
-      "v_access_api.SignAccessCertificateReques" +
-      "t\032-.amv_access_api.SignAccessCertificate" +
-      "Response\"\000B+\n\032org.amv.access.grpc.access" +
-      "B\013AccessProtoP\001b\006proto3"
+      "te\030\003 \001(\t\"\272\002\n\034SignAccessCertificateReques" +
+      "t\022/\n\013issuer_auth\030\001 \001(\0132\032.amv_access_api." +
+      "IssuerAuth\022\035\n\025access_certificate_id\030\002 \001(" +
+      "\t\0223\n+vehicle_access_certificate_signatur" +
+      "e_base64\030\003 \001(\t\0220\n(signed_vehicle_access_" +
+      "certificate_base64\030\004 \001(\t\0222\n*device_acces" +
+      "s_certificate_signature_base64\030\005 \001(\t\022/\n\'" +
+      "signed_device_access_certificate_base64\030" +
+      "\006 \001(\t\"^\n\035SignAccessCertificateResponse\022=" +
+      "\n\022access_certificate\030\001 \001(\0132!.amv_access_" +
+      "api.AccessCertificate2\375\002\n\rAccessService\022" +
+      "v\n\025getAccessCertificates\022,.amv_access_ap" +
+      "i.GetAccessCertificatesRequest\032-.amv_acc" +
+      "ess_api.GetAccessCertificatesResponse\"\000\022" +
+      "|\n\027createAccessCertificate\022..amv_access_" +
+      "api.CreateAccessCertificateRequest\032/.amv" +
+      "_access_api.CreateAccessCertificateRespo" +
+      "nse\"\000\022v\n\025signAccessCertificate\022,.amv_acc" +
+      "ess_api.SignAccessCertificateRequest\032-.a" +
+      "mv_access_api.SignAccessCertificateRespo" +
+      "nse\"\000B+\n\032org.amv.access.grpc.accessB\013Acc" +
+      "essProtoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -124,7 +125,7 @@ public final class AccessProto {
     internal_static_amv_access_api_AccessCertificate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_amv_access_api_AccessCertificate_descriptor,
-        new java.lang.String[] { "Id", "DeviceAccessCertificate", "VehicleAccessCertificate", "Name", });
+        new java.lang.String[] { "Id", "DeviceAccessCertificate", "VehicleAccessCertificate", "Name", "Version", });
     internal_static_amv_access_api_GetAccessCertificatesRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_amv_access_api_GetAccessCertificatesRequest_fieldAccessorTable = new
@@ -142,7 +143,7 @@ public final class AccessProto {
     internal_static_amv_access_api_CreateAccessCertificateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_amv_access_api_CreateAccessCertificateRequest_descriptor,
-        new java.lang.String[] { "IssuerAuth", "AppId", "DeviceSerialNumber", "VehicleSerialNumber", "ValidityStart", "ValidityEnd", });
+        new java.lang.String[] { "IssuerAuth", "AppId", "DeviceSerialNumber", "VehicleSerialNumber", "ValidityStart", "ValidityEnd", "Version", });
     internal_static_amv_access_api_CreateAccessCertificateResponse_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_amv_access_api_CreateAccessCertificateResponse_fieldAccessorTable = new
