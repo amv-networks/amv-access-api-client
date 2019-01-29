@@ -1,14 +1,14 @@
 package org.amv.access.client.model;
 
-public final class DeviceCertificateResponseDtoObjectMother {
+public final class DeviceCertificateResponseDtoMother {
 
-    private DeviceCertificateResponseDtoObjectMother() {
+    private DeviceCertificateResponseDtoMother() {
         throw new UnsupportedOperationException();
     }
 
     public static DeviceCertificateResponseDto random() {
         return DeviceCertificateResponseDto.builder()
-                .deviceCertificate(DeviceCertificateDtoObjectMother.random())
+                .deviceCertificate(DeviceCertificateDtoMother.random())
                 .build();
     }
 }

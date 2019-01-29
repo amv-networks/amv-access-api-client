@@ -11,5 +11,6 @@ public interface AccessCertClient extends AccessApiClient {
 
     Observable<GetAccessCertificatesResponseDto> fetchAccessCertificates(String nonce,
                                                                          String signedNonce,
-                                                                         String deviceSerialNumber);
+                                                                         String deviceSerialNumber,
+                                                                         int certificateVersion);
 }

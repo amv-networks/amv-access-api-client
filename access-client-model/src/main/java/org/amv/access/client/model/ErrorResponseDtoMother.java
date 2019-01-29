@@ -2,9 +2,9 @@ package org.amv.access.client.model;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
-public final class ErrorResponseDtoObjectMother {
+public final class ErrorResponseDtoMother {
 
-    private ErrorResponseDtoObjectMother() {
+    private ErrorResponseDtoMother() {
         throw new UnsupportedOperationException();
     }
 

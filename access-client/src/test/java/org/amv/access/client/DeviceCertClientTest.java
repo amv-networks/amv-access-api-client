@@ -29,7 +29,7 @@ public class DeviceCertClientTest {
 
     @Test
     public void itShouldCreateDeviceCertificateSuccessfully() throws JsonProcessingException {
-        CreateDeviceCertificateResponseDto deviceCertificate = CreateDeviceCertificateResponseDtoObjectMother.random();
+        CreateDeviceCertificateResponseDto deviceCertificate = CreateDeviceCertificateResponseDtoMother.random();
         String deviceCertificateAsJson = Clients.defaultObjectMapper.writeValueAsString(deviceCertificate);
 
         MockClient mockClient = new MockClient()
@@ -60,7 +60,7 @@ public class DeviceCertClientTest {
 
     @Test
     public void itShouldFetchDeviceCertificateSuccessfully() throws JsonProcessingException {
-        DeviceCertificateResponseDto deviceCertificate = DeviceCertificateResponseDtoObjectMother.random();
+        DeviceCertificateResponseDto deviceCertificate = DeviceCertificateResponseDtoMother.random();
         String deviceCertificateAsJson = Clients.defaultObjectMapper.writeValueAsString(deviceCertificate);
 
         MockClient mockClient = new MockClient()
@@ -91,7 +91,7 @@ public class DeviceCertClientTest {
 
     @Test
     public void itShouldReturnDeserializedErrorTransferObjectOnFailure() throws JsonProcessingException {
-        ErrorResponseDto errorDto = ErrorResponseDtoObjectMother.random();
+        ErrorResponseDto errorDto = ErrorResponseDtoMother.random();
 
         String errorDtoAsJson = Clients.defaultObjectMapper.writeValueAsString(errorDto);
 

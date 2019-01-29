@@ -2,9 +2,9 @@ package org.amv.access.client.model;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
-public final class DeviceCertificateDtoObjectMother {
+public final class DeviceCertificateDtoMother {
 
-    private DeviceCertificateDtoObjectMother() {
+    private DeviceCertificateDtoMother() {
         throw new UnsupportedOperationException();
     }
 

@@ -23,10 +23,11 @@ public interface AccessCertClient extends AccessApiClient {
             MoreHttpHeaders.AMV_NONCE + ": " + "{nonce}",
             MoreHttpHeaders.AMV_SIGNATURE + ": " + "{signedNonce}"
     })
-    @RequestLine("GET /api/v1/device/{deviceSerialNumber}/access_certificates")
+    @RequestLine("GET /api/v1/device/{deviceSerialNumber}/access_certificates?certificate_version={certificateVersion}")
     HystrixCommand<GetAccessCertificatesResponseDto> fetchAccessCertificates(@Param("nonce") String nonce,
                                                                              @Param("signedNonce") String signedNonce,
-                                                                             @Param("deviceSerialNumber") String deviceSerialNumber);
+                                                                             @Param("deviceSerialNumber") String deviceSerialNumber,
+                                                                             @Param("certificateVersion") int certificateVersion);
 
     @Headers({
             CONTENT_TYPE + ": " + "application/json;charset=UTF-8",

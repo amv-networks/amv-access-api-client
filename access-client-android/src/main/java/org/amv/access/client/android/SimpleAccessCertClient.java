@@ -9,6 +9,8 @@ import okhttp3.Response;
 import okhttp3.internal.Util;
 import org.amv.access.client.android.model.GetAccessCertificatesResponseDto;
 
+import java.util.StringJoiner;
+
 
 public class SimpleAccessCertClient implements AccessCertClient {
 
@@ -26,12 +28,14 @@ public class SimpleAccessCertClient implements AccessCertClient {
     @Override
     public Observable<GetAccessCertificatesResponseDto> fetchAccessCertificates(final String nonce,
                                                                                 final String signedNonce,
-                                                                                final String deviceSerialNumber) {
+                                                                                final String deviceSerialNumber,
+                                                                                final int certificateVersion) {
         return Observable.just(1)
                 .flatMap(new Function<Integer, Observable<GetAccessCertificatesResponseDto>>() {
                     @Override
                     public Observable<GetAccessCertificatesResponseDto> apply(@NonNull Integer foo) throws Exception {
-                        String url = String.format("%s/api/v1/device/%s/access_certificates", baseUrl, deviceSerialNumber);
+                        String query = String.format("certificate_version=%d", certificateVersion);
+                        String url = String.format("%s/api/v1/device/%s/access_certificates?%s", baseUrl, deviceSerialNumber, query);
 
                         Request request = new Request.Builder()
                                 .addHeader(MoreHttpHeaders.AMV_NONCE, nonce)
